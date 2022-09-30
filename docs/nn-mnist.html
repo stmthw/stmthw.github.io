@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang xml:lang>
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Chapter 6 NN: MNIST [ML|R,MATH] | Data Portfolio</title>
+  <meta name="description" content="&lt;p&gt;My online portfolio using a minimalist theme.&lt;/p&gt;">
+  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Chapter 6 NN: MNIST [ML|R,MATH] | Data Portfolio">
+  <meta property="og:type" content="book">
+  
+  <meta property="og:description" content="&lt;p&gt;My online portfolio using a minimalist theme.&lt;/p&gt;">
+  
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Chapter 6 NN: MNIST [ML|R,MATH] | Data Portfolio">
+  
+  <meta name="twitter:description" content="&lt;p&gt;My online portfolio using a minimalist theme.&lt;/p&gt;">
+  
+
+<meta name="author" content="Matthew Robert Sears">
+
+
+<meta name="date" content="2022-09-30">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="nn-xor.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet">
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet">
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet">
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet">
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet">
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet">
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet">
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet">
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet">
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css" data-external="1"></head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Data Portfolio</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> README</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#structure"><i class="fa fa-check"></i><b>1.1</b> Structure</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#why-bookdown"><i class="fa fa-check"></i><b>1.2</b> Why Bookdown?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="nasa-svm.html"><a href="nasa-svm.html"><i class="fa fa-check"></i><b>2</b> NASA SVM [ML|PY]</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="nasa-svm.html"><a href="nasa-svm.html#description"><i class="fa fa-check"></i><b>2.1</b> Description</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="nasa-svm.html"><a href="nasa-svm.html#data"><i class="fa fa-check"></i><b>2.1.1</b> Data</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="nasa-svm.html"><a href="nasa-svm.html#algorithm"><i class="fa fa-check"></i><b>2.2</b> Algorithm</a></li>
+<li class="chapter" data-level="2.3" data-path="nasa-svm.html"><a href="nasa-svm.html#analysis"><i class="fa fa-check"></i><b>2.3</b> Analysis</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="nasa-svm.html"><a href="nasa-svm.html#scripts"><i class="fa fa-check"></i><b>2.3.1</b> Scripts</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="nasa-svm.html"><a href="nasa-svm.html#conclusions"><i class="fa fa-check"></i><b>2.4</b> Conclusions</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="nasa-svm.html"><a href="nasa-svm.html#todo"><i class="fa fa-check"></i><b>2.4.1</b> TODO?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="nasa-svm.html"><a href="nasa-svm.html#nasa-fw"><i class="fa fa-check"></i><b>2.5</b> Future Work?</a></li>
+<li class="chapter" data-level="" data-path="nasa-svm.html"><a href="nasa-svm.html#source-code"><i class="fa fa-check"></i>Source Code</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="google-capstone.html"><a href="google-capstone.html"><i class="fa fa-check"></i><b>3</b> Google Capstone [DA|R]</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="google-capstone.html"><a href="google-capstone.html#description-1"><i class="fa fa-check"></i><b>3.1</b> Description</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="google-capstone.html"><a href="google-capstone.html#scenario"><i class="fa fa-check"></i><b>3.1.1</b> Scenario</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="google-capstone.html"><a href="google-capstone.html#ask"><i class="fa fa-check"></i><b>3.2</b> Ask</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="google-capstone.html"><a href="google-capstone.html#objective"><i class="fa fa-check"></i><b>3.2.1</b> Objective</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="google-capstone.html"><a href="google-capstone.html#prepare-process"><i class="fa fa-check"></i><b>3.3</b> Prepare / Process</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="google-capstone.html"><a href="google-capstone.html#pre-processing-with-r"><i class="fa fa-check"></i><b>3.3.1</b> Pre-Processing with R</a></li>
+<li class="chapter" data-level="3.3.2" data-path="google-capstone.html"><a href="google-capstone.html#feature-engineering"><i class="fa fa-check"></i><b>3.3.2</b> Feature Engineering</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="google-capstone.html"><a href="google-capstone.html#analyze"><i class="fa fa-check"></i><b>3.4</b> Analyze</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="google-capstone.html"><a href="google-capstone.html#basic-descriptive-statistics"><i class="fa fa-check"></i><b>3.4.1</b> Basic Descriptive Statistics</a></li>
+<li class="chapter" data-level="3.4.2" data-path="google-capstone.html"><a href="google-capstone.html#viz-trip-behavior"><i class="fa fa-check"></i><b>3.4.2</b> Viz: Trip Behavior</a></li>
+<li class="chapter" data-level="3.4.3" data-path="google-capstone.html"><a href="google-capstone.html#viz-bike-choice"><i class="fa fa-check"></i><b>3.4.3</b> Viz: Bike Choice</a></li>
+<li class="chapter" data-level="3.4.4" data-path="google-capstone.html"><a href="google-capstone.html#viz-popular-routes"><i class="fa fa-check"></i><b>3.4.4</b> Viz: Popular Routes</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="google-capstone.html"><a href="google-capstone.html#report"><i class="fa fa-check"></i><b>3.5</b> Share &amp; Act (Final Report)</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="google-capstone.html"><a href="google-capstone.html#key-observations"><i class="fa fa-check"></i><b>3.5.1</b> Key Observations</a></li>
+<li class="chapter" data-level="3.5.2" data-path="google-capstone.html"><a href="google-capstone.html#actionables"><i class="fa fa-check"></i><b>3.5.2</b> Actionables</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="rsql.html"><a href="rsql.html"><i class="fa fa-check"></i><b>4</b> Visualizing Sentiment [DA|R]</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="rsql.html"><a href="rsql.html#description-2"><i class="fa fa-check"></i><b>4.1</b> Description</a></li>
+<li class="chapter" data-level="4.2" data-path="rsql.html"><a href="rsql.html#setup"><i class="fa fa-check"></i><b>4.2</b> Setup</a></li>
+<li class="chapter" data-level="4.3" data-path="rsql.html"><a href="rsql.html#create-sql-database"><i class="fa fa-check"></i><b>4.3</b> Create SQL Database</a>
+<ul>
+<li class="chapter" data-level="" data-path="rsql.html"><a href="rsql.html#aside"><i class="fa fa-check"></i>Aside</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="rsql.html"><a href="rsql.html#write-query-table"><i class="fa fa-check"></i><b>4.4</b> Write &amp; Query Table</a></li>
+<li class="chapter" data-level="4.5" data-path="rsql.html"><a href="rsql.html#analysis-1"><i class="fa fa-check"></i><b>4.5</b> Analysis</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="rsql.html"><a href="rsql.html#sentiment-word-clouds"><i class="fa fa-check"></i><b>4.5.1</b> Sentiment Word Clouds</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="rsql.html"><a href="rsql.html#alter-update-table"><i class="fa fa-check"></i><b>4.6</b> Alter &amp; Update Table</a></li>
+<li class="chapter" data-level="4.7" data-path="rsql.html"><a href="rsql.html#r-sql"><i class="fa fa-check"></i><b>4.7</b> R &amp; SQL</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="nn-xor.html"><a href="nn-xor.html"><i class="fa fa-check"></i><b>5</b> NN: XOR [ML|PY,MATH]</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="nn-xor.html"><a href="nn-xor.html#backpropagation-and-xor"><i class="fa fa-check"></i><b>5.1</b> Backpropagation and XOR</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="nn-xor.html"><a href="nn-xor.html#motivation"><i class="fa fa-check"></i><b>5.1.1</b> Motivation</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="nn-xor.html"><a href="nn-xor.html#activation"><i class="fa fa-check"></i><b>5.2</b> Activation</a></li>
+<li class="chapter" data-level="5.3" data-path="nn-xor.html"><a href="nn-xor.html#multivariable-calculus"><i class="fa fa-check"></i><b>5.3</b> Multivariable Calculus</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="nn-xor.html"><a href="nn-xor.html#dissecting-the-network"><i class="fa fa-check"></i><b>5.3.1</b> Dissecting the Network</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="nn-xor.html"><a href="nn-xor.html#conclusion"><i class="fa fa-check"></i><b>5.4</b> Conclusion</a></li>
+<li class="chapter" data-level="5.5" data-path="nn-xor.html"><a href="nn-xor.html#learning-xor-in-tensorflow"><i class="fa fa-check"></i><b>5.5</b> Learning XOR in TensorFlow</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="nn-mnist.html"><a href="nn-mnist.html"><i class="fa fa-check"></i><b>6</b> NN: MNIST [ML|R,MATH]</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="nn-mnist.html"><a href="nn-mnist.html#setup-importing-data"><i class="fa fa-check"></i><b>6.1</b> Setup &amp; Importing Data</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="nn-mnist.html"><a href="nn-mnist.html#data-1"><i class="fa fa-check"></i><b>6.1.1</b> Data</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="nn-mnist.html"><a href="nn-mnist.html#algorithm-1"><i class="fa fa-check"></i><b>6.2</b> Algorithm</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="nn-mnist.html"><a href="nn-mnist.html#initialize"><i class="fa fa-check"></i><b>6.2.1</b> Initialize</a></li>
+<li class="chapter" data-level="6.2.2" data-path="nn-mnist.html"><a href="nn-mnist.html#learn"><i class="fa fa-check"></i><b>6.2.2</b> Learn</a></li>
+<li class="chapter" data-level="" data-path="nn-mnist.html"><a href="nn-mnist.html#aside-2"><i class="fa fa-check"></i>Aside</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data Portfolio</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="nn-mnist" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">Chapter 6</span> NN: MNIST [ML|R,MATH]<a href="nn-mnist.html#nn-mnist" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p><strong>Under the Hood: Neural Networks and Backpropagation</strong></p>
+<p>I made a vanilla neural network from scratch in R to showcase its inner workings.</p>
+<p>Specifically, this is a multilayer perceptron (MLP) &#x2013; a fully connected class of feedforward artificial neural network (ANN). An ANN equipped with backpropagation can learn non-linear classification tasks.</p>
+<p>This is an &#x201C;unofficial sequel&#x201D; to my <a href="nn-xor.html#nn-xor">XOR project</a> and demonstrates the mathematics behind backpropagation by learning how to classify handwritten digits.</p>
+<p>I used the <a href="https://en.wikipedia.org/wiki/MNIST_database">MNIST</a> handwritten digits dataset.</p>
+<div id="setup-importing-data" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> Setup &amp; Importing Data<a href="nn-mnist.html#setup-importing-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>First, I created a shell script to scrape and decompress the data so I can feed it into R:</p>
+<div class="sourceCode" id="cb114"><pre class="sourceCode zsh"><code class="sourceCode zsh"><span id="cb114-1"><a href="nn-mnist.html#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/zsh</span></span>
+<span id="cb114-2"><a href="nn-mnist.html#cb114-2" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://data.deepai.org/mnist.zip <span class="dt">\</span></span>
+<span id="cb114-3"><a href="nn-mnist.html#cb114-3" aria-hidden="true" tabindex="-1"></a><span class="kw">&amp;&amp;</span> <span class="fu">unzip</span> <span class="st">&apos;*.zip&apos;</span> <span class="at">-d</span> mnist-data/ <span class="dt">\</span></span>
+<span id="cb114-4"><a href="nn-mnist.html#cb114-4" aria-hidden="true" tabindex="-1"></a><span class="kw">&amp;&amp;</span> <span class="fu">rm</span> <span class="pp">*</span>.zip <span class="kw">&amp;&amp;</span> <span class="fu">rm</span> <span class="at">-rf</span> __MACOSX/ <span class="dt">\</span></span>
+<span id="cb114-5"><a href="nn-mnist.html#cb114-5" aria-hidden="true" tabindex="-1"></a><span class="kw">&amp;&amp;</span> <span class="bu">cd</span> mnist-data/ <span class="kw">&amp;&amp;</span> <span class="fu">gzip</span> <span class="at">-d</span> <span class="pp">*</span>.gz</span></code></pre></div>
+<p>Then created helper functions to parse the data from byte-form:</p>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="nn-mnist.html#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Returns a list of matrices containing image gray-scale values</span></span>
+<span id="cb115-2"><a href="nn-mnist.html#cb115-2" aria-hidden="true" tabindex="-1"></a>read_imgs <span class="ot">&lt;-</span> <span class="cf">function</span>(imgdb, <span class="at">n_get=</span><span class="dv">0</span>) {</span>
+<span id="cb115-3"><a href="nn-mnist.html#cb115-3" aria-hidden="true" tabindex="-1"></a>  images <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<span id="cb115-4"><a href="nn-mnist.html#cb115-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">readBin</span>(imgdb, <span class="fu">integer</span>(), <span class="at">n=</span><span class="dv">1</span>, <span class="at">endian=</span><span class="st">&quot;big&quot;</span>)</span>
+<span id="cb115-5"><a href="nn-mnist.html#cb115-5" aria-hidden="true" tabindex="-1"></a>  n_imgs <span class="ot">&lt;-</span> <span class="fu">readBin</span>(imgdb, <span class="fu">integer</span>(), <span class="at">n=</span><span class="dv">1</span>, <span class="at">endian=</span><span class="st">&quot;big&quot;</span>)</span>
+<span id="cb115-6"><a href="nn-mnist.html#cb115-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(n_get<span class="sc">==</span><span class="dv">0</span>)</span>
+<span id="cb115-7"><a href="nn-mnist.html#cb115-7" aria-hidden="true" tabindex="-1"></a>    n_get <span class="ot">&lt;-</span> n_imgs</span>
+<span id="cb115-8"><a href="nn-mnist.html#cb115-8" aria-hidden="true" tabindex="-1"></a>  nrows <span class="ot">&lt;-</span> <span class="fu">readBin</span>(imgdb, <span class="fu">integer</span>(), <span class="at">n=</span><span class="dv">1</span>, <span class="at">endian=</span><span class="st">&quot;big&quot;</span>)</span>
+<span id="cb115-9"><a href="nn-mnist.html#cb115-9" aria-hidden="true" tabindex="-1"></a>  ncols <span class="ot">&lt;-</span> <span class="fu">readBin</span>(imgdb, <span class="fu">integer</span>(), <span class="at">n=</span><span class="dv">1</span>, <span class="at">endian=</span><span class="st">&quot;big&quot;</span>)</span>
+<span id="cb115-10"><a href="nn-mnist.html#cb115-10" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n_get) {</span>
+<span id="cb115-11"><a href="nn-mnist.html#cb115-11" aria-hidden="true" tabindex="-1"></a>    img <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">readBin</span>(imgdb, <span class="fu">integer</span>(), <span class="at">n=</span>nrows<span class="sc">*</span>ncols, <span class="at">size=</span><span class="dv">1</span>, <span class="at">signed=</span><span class="cn">FALSE</span>),</span>
+<span id="cb115-12"><a href="nn-mnist.html#cb115-12" aria-hidden="true" tabindex="-1"></a>                   nrows, ncols)</span>
+<span id="cb115-13"><a href="nn-mnist.html#cb115-13" aria-hidden="true" tabindex="-1"></a>    images <span class="ot">&lt;-</span>  <span class="fu">c</span>(images, <span class="fu">list</span>(img))</span>
+<span id="cb115-14"><a href="nn-mnist.html#cb115-14" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb115-15"><a href="nn-mnist.html#cb115-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">close</span>(imgdb)</span>
+<span id="cb115-16"><a href="nn-mnist.html#cb115-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(images)</span>
+<span id="cb115-17"><a href="nn-mnist.html#cb115-17" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb115-18"><a href="nn-mnist.html#cb115-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Returns a list of image labels</span></span>
+<span id="cb115-19"><a href="nn-mnist.html#cb115-19" aria-hidden="true" tabindex="-1"></a>read_lbls <span class="ot">&lt;-</span> <span class="cf">function</span>(lbldb, <span class="at">n_get=</span><span class="dv">0</span>) {</span>
+<span id="cb115-20"><a href="nn-mnist.html#cb115-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">readBin</span>(lbldb, <span class="fu">integer</span>(), <span class="at">n=</span><span class="dv">1</span>, <span class="at">endian=</span><span class="st">&quot;big&quot;</span>)</span>
+<span id="cb115-21"><a href="nn-mnist.html#cb115-21" aria-hidden="true" tabindex="-1"></a>  n_lbls <span class="ot">&lt;-</span> <span class="fu">readBin</span>(lbldb, <span class="fu">integer</span>(), <span class="at">n=</span><span class="dv">1</span>, <span class="at">endian=</span><span class="st">&quot;big&quot;</span>)</span>
+<span id="cb115-22"><a href="nn-mnist.html#cb115-22" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(n_get <span class="sc">==</span> <span class="dv">0</span>)</span>
+<span id="cb115-23"><a href="nn-mnist.html#cb115-23" aria-hidden="true" tabindex="-1"></a>    n_get <span class="ot">=</span> n_lbls</span>
+<span id="cb115-24"><a href="nn-mnist.html#cb115-24" aria-hidden="true" tabindex="-1"></a>  lbls <span class="ot">&lt;-</span> <span class="fu">readBin</span>(lbldb, <span class="fu">integer</span>(), <span class="at">n=</span>n_get, <span class="at">size=</span><span class="dv">1</span>, <span class="at">signed=</span><span class="cn">FALSE</span>)</span>
+<span id="cb115-25"><a href="nn-mnist.html#cb115-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(lbls)</span>
+<span id="cb115-26"><a href="nn-mnist.html#cb115-26" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div id="data-1" class="section level3 hasAnchor" number="6.1.1">
+<h3><span class="header-section-number">6.1.1</span> Data<a href="nn-mnist.html#data-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="nn-mnist.html#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get images</span></span>
+<span id="cb116-2"><a href="nn-mnist.html#cb116-2" aria-hidden="true" tabindex="-1"></a>mnist_imgs <span class="ot">&lt;-</span> <span class="fu">file</span>(<span class="st">&quot;mnist-data/train-images-idx3-ubyte&quot;</span>, <span class="st">&quot;rb&quot;</span>)</span>
+<span id="cb116-3"><a href="nn-mnist.html#cb116-3" aria-hidden="true" tabindex="-1"></a>imgs <span class="ot">&lt;-</span> <span class="fu">read_imgs</span>(mnist_imgs, <span class="dv">9</span>)</span>
+<span id="cb116-4"><a href="nn-mnist.html#cb116-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb116-5"><a href="nn-mnist.html#cb116-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Get labels</span></span>
+<span id="cb116-6"><a href="nn-mnist.html#cb116-6" aria-hidden="true" tabindex="-1"></a>mnist_lbls <span class="ot">&lt;-</span> <span class="fu">file</span>(<span class="st">&quot;mnist-data/train-labels-idx1-ubyte&quot;</span>, <span class="st">&quot;rb&quot;</span>)</span>
+<span id="cb116-7"><a href="nn-mnist.html#cb116-7" aria-hidden="true" tabindex="-1"></a>lbls <span class="ot">&lt;-</span> <span class="fu">read_lbls</span>(mnist_lbls, <span class="dv">9</span>)</span>
+<span id="cb116-8"><a href="nn-mnist.html#cb116-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb116-9"><a href="nn-mnist.html#cb116-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Display example digit with label</span></span>
+<span id="cb116-10"><a href="nn-mnist.html#cb116-10" aria-hidden="true" tabindex="-1"></a><span class="fu">image</span>(imgs[[<span class="dv">1</span>]][,<span class="dv">28</span><span class="sc">:</span><span class="dv">1</span>], <span class="at">col=</span><span class="fu">gray</span>(<span class="dv">12</span><span class="sc">:</span><span class="dv">1</span><span class="sc">/</span><span class="dv">12</span>), <span class="at">axes =</span> <span class="cn">FALSE</span>, <span class="at">main=</span><span class="fu">paste</span>(lbls[<span class="dv">1</span>]))</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:import"></span>
+<img src="_main_files/figure-html/import-1.png" alt="The first labeled digit in the MNIST dataset" width="672">
+<p class="caption">
+Figure 6.1: The first labeled digit in the MNIST dataset
+</p>
+</div>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="nn-mnist.html#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 9 labeled digits</span></span>
+<span id="cb117-2"><a href="nn-mnist.html#cb117-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">3</span>))</span>
+<span id="cb117-3"><a href="nn-mnist.html#cb117-3" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">3</span>, <span class="dv">0</span>))</span>
+<span id="cb117-4"><a href="nn-mnist.html#cb117-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>){</span>
+<span id="cb117-5"><a href="nn-mnist.html#cb117-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">image</span>(imgs[[i]][,<span class="dv">28</span><span class="sc">:</span><span class="dv">1</span>], <span class="at">col=</span><span class="fu">gray</span>(<span class="dv">12</span><span class="sc">:</span><span class="dv">1</span><span class="sc">/</span><span class="dv">12</span>), <span class="at">axes=</span><span class="cn">FALSE</span>, <span class="at">main=</span><span class="fu">paste</span>(lbls[i]))</span>
+<span id="cb117-6"><a href="nn-mnist.html#cb117-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p><img src="_main_files/figure-html/digits-1.png" width="672"></p>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="nn-mnist.html#cb118-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Number of pixels</span></span>
+<span id="cb118-2"><a href="nn-mnist.html#cb118-2" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(imgs[[<span class="dv">1</span>]])</span></code></pre></div>
+<pre><code>## [1] 784</code></pre>
+</div>
+</div>
+<div id="algorithm-1" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> Algorithm<a href="nn-mnist.html#algorithm-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p>The 10 output nodes represent the digits <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>&#xA0;</mtext><mn>0</mn><mo>&#x2212;</mo><mn>9</mn></mrow><annotation encoding="application/x-tex">\ 0-9</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mspace">&#xA0;</span><span class="mord">0</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">&#x2212;</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">9</span></span></span></span></p></li>
+<li><p>Since the images are 28 by 28 we have <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><msup><mn>8</mn><mn>2</mn></msup><mo>=</mo><mn>784</mn></mrow><annotation encoding="application/x-tex">28^2 = 784</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord">2</span><span class="mord"><span class="mord">8</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">784</span></span></span></span> pixels, or 784 input nodes</p></li>
+<li><p>The number of hidden nodes determines the model&#x2019;s complexity; i.e., underfitting or overfitting</p>
+<ul>
+<li>Can be tuned; for this example, I chose 28 (elegance and it saves some computation)</li>
+</ul></li>
+</ul>
+<p>This is a showcase of the &#x201C;heart&#x201D; of the neural network; in practice, this algorithm would be running in batches with weights updated over epochs. To not take away from the mathematics (and for brevity&#x2019;s sake) the algorithm only trains on one example.</p>
+<div id="initialize" class="section level3 hasAnchor" number="6.2.1">
+<h3><span class="header-section-number">6.2.1</span> Initialize<a href="nn-mnist.html#initialize" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This example focuses on the first digit from Figure <a href="nn-mnist.html#fig:import">6.1</a>, providing a walkthrough of how the learning process works for classifying a handwritten digit.</p>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="nn-mnist.html#cb120-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb120-2"><a href="nn-mnist.html#cb120-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb120-3"><a href="nn-mnist.html#cb120-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Sigmoid</span></span>
+<span id="cb120-4"><a href="nn-mnist.html#cb120-4" aria-hidden="true" tabindex="-1"></a>activate <span class="ot">&lt;-</span> <span class="cf">function</span>(node) { <span class="fu">return</span>(<span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">/</span>(<span class="dv">1</span><span class="sc">+</span><span class="fu">exp</span>(<span class="sc">-</span>node)))) }</span>
+<span id="cb120-5"><a href="nn-mnist.html#cb120-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Derivative</span></span>
+<span id="cb120-6"><a href="nn-mnist.html#cb120-6" aria-hidden="true" tabindex="-1"></a>sigprime <span class="ot">&lt;-</span> <span class="cf">function</span>(node) { <span class="fu">return</span>(<span class="fu">matrix</span>(<span class="fu">activate</span>(node)<span class="sc">*</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="fu">activate</span>(node)))) }</span>
+<span id="cb120-7"><a href="nn-mnist.html#cb120-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb120-8"><a href="nn-mnist.html#cb120-8" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb120-9"><a href="nn-mnist.html#cb120-9" aria-hidden="true" tabindex="-1"></a>errs <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb120-10"><a href="nn-mnist.html#cb120-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb120-11"><a href="nn-mnist.html#cb120-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Learning rate</span></span>
+<span id="cb120-12"><a href="nn-mnist.html#cb120-12" aria-hidden="true" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="fl">0.25</span></span>
+<span id="cb120-13"><a href="nn-mnist.html#cb120-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Number of input, hidden, output nodes</span></span>
+<span id="cb120-14"><a href="nn-mnist.html#cb120-14" aria-hidden="true" tabindex="-1"></a>network <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">784</span>, <span class="dv">28</span>, <span class="dv">10</span>)</span>
+<span id="cb120-15"><a href="nn-mnist.html#cb120-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb120-16"><a href="nn-mnist.html#cb120-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Using the first digit number 5 for example</span></span>
+<span id="cb120-17"><a href="nn-mnist.html#cb120-17" aria-hidden="true" tabindex="-1"></a>model<span class="sc">$</span>input <span class="ot">&lt;-</span> <span class="fu">matrix</span>(imgs[[<span class="dv">1</span>]])</span>
+<span id="cb120-18"><a href="nn-mnist.html#cb120-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb120-19"><a href="nn-mnist.html#cb120-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Since the first label is 5, it&apos;s the 6th index of our truth vector</span></span>
+<span id="cb120-20"><a href="nn-mnist.html#cb120-20" aria-hidden="true" tabindex="-1"></a>truth <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">rep</span>(<span class="dv">0</span>,<span class="dv">10</span>), <span class="at">ncol=</span><span class="dv">1</span>)</span>
+<span id="cb120-21"><a href="nn-mnist.html#cb120-21" aria-hidden="true" tabindex="-1"></a>truth[lbls[<span class="dv">1</span>]<span class="sc">+</span><span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb120-22"><a href="nn-mnist.html#cb120-22" aria-hidden="true" tabindex="-1"></a>truth</span></code></pre></div>
+<pre><code>##       [,1]
+##  [1,]    0
+##  [2,]    0
+##  [3,]    0
+##  [4,]    0
+##  [5,]    0
+##  [6,]    1
+##  [7,]    0
+##  [8,]    0
+##  [9,]    0
+## [10,]    0</code></pre>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="nn-mnist.html#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize nodes</span></span>
+<span id="cb122-2"><a href="nn-mnist.html#cb122-2" aria-hidden="true" tabindex="-1"></a>model<span class="sc">$</span>nodes <span class="ot">&lt;-</span> <span class="fu">mapply</span>(matrix, <span class="at">data=</span><span class="dv">0</span>, <span class="at">ncol=</span><span class="dv">1</span>, <span class="at">nrow=</span>network)</span>
+<span id="cb122-3"><a href="nn-mnist.html#cb122-3" aria-hidden="true" tabindex="-1"></a><span class="fu">lengths</span>(model<span class="sc">$</span>nodes)</span></code></pre></div>
+<pre><code>## [1] 784  28  10</code></pre>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="nn-mnist.html#cb124-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize random weights</span></span>
+<span id="cb124-2"><a href="nn-mnist.html#cb124-2" aria-hidden="true" tabindex="-1"></a>model<span class="sc">$</span>weights <span class="ot">&lt;-</span> <span class="fu">lapply</span>(<span class="dv">1</span><span class="sc">:</span>(<span class="fu">length</span>(network)<span class="sc">-</span><span class="dv">1</span>),</span>
+<span id="cb124-3"><a href="nn-mnist.html#cb124-3" aria-hidden="true" tabindex="-1"></a>                        <span class="cf">function</span>(k) {</span>
+<span id="cb124-4"><a href="nn-mnist.html#cb124-4" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">matrix</span>(<span class="fu">rnorm</span>(network[k<span class="sc">+</span><span class="dv">1</span>]<span class="sc">*</span>network[k]),</span>
+<span id="cb124-5"><a href="nn-mnist.html#cb124-5" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">nrow=</span>network[k<span class="sc">+</span><span class="dv">1</span>], <span class="at">ncol=</span>network[k])</span>
+<span id="cb124-6"><a href="nn-mnist.html#cb124-6" aria-hidden="true" tabindex="-1"></a>                        })</span>
+<span id="cb124-7"><a href="nn-mnist.html#cb124-7" aria-hidden="true" tabindex="-1"></a><span class="fu">lengths</span>(model<span class="sc">$</span>weights)</span></code></pre></div>
+<pre><code>## [1] 21952   280</code></pre>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="nn-mnist.html#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize random biases</span></span>
+<span id="cb126-2"><a href="nn-mnist.html#cb126-2" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">numeric</span>()</span>
+<span id="cb126-3"><a href="nn-mnist.html#cb126-3" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">lapply</span>(network[<span class="sc">-</span><span class="dv">1</span>], rnorm)</span>
+<span id="cb126-4"><a href="nn-mnist.html#cb126-4" aria-hidden="true" tabindex="-1"></a>model<span class="sc">$</span>biases <span class="ot">&lt;-</span> <span class="fu">mapply</span>(matrix, <span class="at">data=</span>b, <span class="at">ncol=</span><span class="dv">1</span>, <span class="at">nrow=</span>network[<span class="sc">-</span><span class="dv">1</span>])</span>
+<span id="cb126-5"><a href="nn-mnist.html#cb126-5" aria-hidden="true" tabindex="-1"></a><span class="fu">lengths</span>(model<span class="sc">$</span>biases)</span></code></pre></div>
+<pre><code>## [1] 28 10</code></pre>
+</div>
+<div id="learn" class="section level3 hasAnchor" number="6.2.2">
+<h3><span class="header-section-number">6.2.2</span> Learn<a href="nn-mnist.html#learn" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>For each iteration, the training example undergoes one forward pass and one backward pass.</p>
+<p>During the backward pass, the weights are updated according to the gradient of the quadratic loss function &#x2013; <a href="nn-xor.html#multivariable-calculus">as derived in the XOR project</a>.</p>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="nn-mnist.html#cb128-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Iterations</span></span>
+<span id="cb128-2"><a href="nn-mnist.html#cb128-2" aria-hidden="true" tabindex="-1"></a>N <span class="ot">=</span> <span class="dv">250</span></span>
+<span id="cb128-3"><a href="nn-mnist.html#cb128-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>N) {</span>
+<span id="cb128-4"><a href="nn-mnist.html#cb128-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Feed Forward</span></span>
+<span id="cb128-5"><a href="nn-mnist.html#cb128-5" aria-hidden="true" tabindex="-1"></a>  model<span class="sc">$</span>nodes[[<span class="dv">1</span>]] <span class="ot">&lt;-</span> <span class="fu">matrix</span>(model<span class="sc">$</span>input)</span>
+<span id="cb128-6"><a href="nn-mnist.html#cb128-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb128-7"><a href="nn-mnist.html#cb128-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Activate hidden layer</span></span>
+<span id="cb128-8"><a href="nn-mnist.html#cb128-8" aria-hidden="true" tabindex="-1"></a>  model<span class="sc">$</span>nodes[[<span class="dv">2</span>]] <span class="ot">&lt;-</span> model<span class="sc">$</span>weights[[<span class="dv">1</span>]]<span class="sc">%*%</span>model<span class="sc">$</span>nodes[[<span class="dv">1</span>]] <span class="sc">+</span> model<span class="sc">$</span>biases[[<span class="dv">1</span>]]</span>
+<span id="cb128-9"><a href="nn-mnist.html#cb128-9" aria-hidden="true" tabindex="-1"></a>  model<span class="sc">$</span>active[[<span class="dv">1</span>]] <span class="ot">&lt;-</span> <span class="fu">activate</span>(model<span class="sc">$</span>nodes[[<span class="dv">2</span>]])</span>
+<span id="cb128-10"><a href="nn-mnist.html#cb128-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb128-11"><a href="nn-mnist.html#cb128-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Activate output layer</span></span>
+<span id="cb128-12"><a href="nn-mnist.html#cb128-12" aria-hidden="true" tabindex="-1"></a>  model<span class="sc">$</span>nodes[[<span class="dv">3</span>]] <span class="ot">&lt;-</span> model<span class="sc">$</span>weights[[<span class="dv">2</span>]]<span class="sc">%*%</span>model<span class="sc">$</span>active[[<span class="dv">1</span>]] <span class="sc">+</span> model<span class="sc">$</span>biases[[<span class="dv">2</span>]]</span>
+<span id="cb128-13"><a href="nn-mnist.html#cb128-13" aria-hidden="true" tabindex="-1"></a>  model<span class="sc">$</span>active[[<span class="dv">2</span>]] <span class="ot">&lt;-</span> <span class="fu">activate</span>(model<span class="sc">$</span>nodes[[<span class="dv">3</span>]])</span>
+<span id="cb128-14"><a href="nn-mnist.html#cb128-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb128-15"><a href="nn-mnist.html#cb128-15" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Backpropagation</span></span>
+<span id="cb128-16"><a href="nn-mnist.html#cb128-16" aria-hidden="true" tabindex="-1"></a>  errs[[i]] <span class="ot">&lt;-</span> model<span class="sc">$</span>active[[<span class="dv">2</span>]] <span class="sc">-</span> truth</span>
+<span id="cb128-17"><a href="nn-mnist.html#cb128-17" aria-hidden="true" tabindex="-1"></a>  delta_w <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb128-18"><a href="nn-mnist.html#cb128-18" aria-hidden="true" tabindex="-1"></a>  delta_w[[<span class="dv">2</span>]] <span class="ot">&lt;-</span> alpha <span class="sc">*</span> (truth <span class="sc">-</span> model<span class="sc">$</span>active[[<span class="dv">2</span>]]) <span class="sc">*</span> <span class="fu">sigprime</span>(model<span class="sc">$</span>nodes[[<span class="dv">3</span>]])</span>
+<span id="cb128-19"><a href="nn-mnist.html#cb128-19" aria-hidden="true" tabindex="-1"></a>  delta_w[[<span class="dv">1</span>]] <span class="ot">&lt;-</span> (<span class="fu">t</span>(model<span class="sc">$</span>weights[[<span class="dv">2</span>]])<span class="sc">%*%</span>delta_w[[<span class="dv">2</span>]]) <span class="sc">*</span> <span class="fu">sigprime</span>(model<span class="sc">$</span>nodes[[<span class="dv">2</span>]])</span>
+<span id="cb128-20"><a href="nn-mnist.html#cb128-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb128-21"><a href="nn-mnist.html#cb128-21" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Update weights</span></span>
+<span id="cb128-22"><a href="nn-mnist.html#cb128-22" aria-hidden="true" tabindex="-1"></a>  w2 <span class="ot">&lt;-</span> model<span class="sc">$</span>weights[[<span class="dv">2</span>]] <span class="sc">+</span> delta_w[[<span class="dv">2</span>]]<span class="sc">%*%</span><span class="fu">t</span>(model<span class="sc">$</span>active[[<span class="dv">1</span>]])</span>
+<span id="cb128-23"><a href="nn-mnist.html#cb128-23" aria-hidden="true" tabindex="-1"></a>  w1 <span class="ot">&lt;-</span> model<span class="sc">$</span>weights[[<span class="dv">1</span>]] <span class="sc">+</span> delta_w[[<span class="dv">1</span>]]<span class="sc">%*%</span><span class="fu">t</span>(model<span class="sc">$</span>nodes[[<span class="dv">1</span>]])</span>
+<span id="cb128-24"><a href="nn-mnist.html#cb128-24" aria-hidden="true" tabindex="-1"></a>  model<span class="sc">$</span>weights[[<span class="dv">2</span>]] <span class="ot">&lt;-</span> w2</span>
+<span id="cb128-25"><a href="nn-mnist.html#cb128-25" aria-hidden="true" tabindex="-1"></a>  model<span class="sc">$</span>weights[[<span class="dv">1</span>]] <span class="ot">&lt;-</span> w1</span>
+<span id="cb128-26"><a href="nn-mnist.html#cb128-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb128-27"><a href="nn-mnist.html#cb128-27" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Update biases</span></span>
+<span id="cb128-28"><a href="nn-mnist.html#cb128-28" aria-hidden="true" tabindex="-1"></a>  b2 <span class="ot">&lt;-</span> model<span class="sc">$</span>biases[[<span class="dv">2</span>]] <span class="sc">-</span> alpha<span class="sc">*</span>delta_w[[<span class="dv">2</span>]]</span>
+<span id="cb128-29"><a href="nn-mnist.html#cb128-29" aria-hidden="true" tabindex="-1"></a>  b1 <span class="ot">&lt;-</span> model<span class="sc">$</span>biases[[<span class="dv">1</span>]] <span class="sc">-</span> alpha<span class="sc">*</span>delta_w[[<span class="dv">1</span>]]</span>
+<span id="cb128-30"><a href="nn-mnist.html#cb128-30" aria-hidden="true" tabindex="-1"></a>  model<span class="sc">$</span>biases[[<span class="dv">2</span>]] <span class="ot">&lt;-</span> b2</span>
+<span id="cb128-31"><a href="nn-mnist.html#cb128-31" aria-hidden="true" tabindex="-1"></a>  model<span class="sc">$</span>biases[[<span class="dv">1</span>]] <span class="ot">&lt;-</span> b1</span>
+<span id="cb128-32"><a href="nn-mnist.html#cb128-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb128-33"><a href="nn-mnist.html#cb128-33" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Print results</span></span>
+<span id="cb128-34"><a href="nn-mnist.html#cb128-34" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(i <span class="sc">%%</span> <span class="dv">10</span> <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;&amp;</span> i <span class="sc">&lt;</span> <span class="dv">70</span>){</span>
+<span id="cb128-35"><a href="nn-mnist.html#cb128-35" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;--------------------&quot;</span>)</span>
+<span id="cb128-36"><a href="nn-mnist.html#cb128-36" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Iteration&quot;</span>, i, <span class="st">&quot;Guess:&quot;</span>,</span>
+<span id="cb128-37"><a href="nn-mnist.html#cb128-37" aria-hidden="true" tabindex="-1"></a>                <span class="fu">which.max</span>(<span class="fu">as.vector</span>(model<span class="sc">$</span>active[[<span class="dv">2</span>]])) <span class="sc">-</span> <span class="dv">1</span>))</span>
+<span id="cb128-38"><a href="nn-mnist.html#cb128-38" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">matrix</span>(model<span class="sc">$</span>active[[<span class="dv">2</span>]]))</span>
+<span id="cb128-39"><a href="nn-mnist.html#cb128-39" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span>(i <span class="sc">==</span> N){</span>
+<span id="cb128-40"><a href="nn-mnist.html#cb128-40" aria-hidden="true" tabindex="-1"></a>      <span class="fu">print</span>(<span class="st">&quot;--------------------&quot;</span>)</span>
+<span id="cb128-41"><a href="nn-mnist.html#cb128-41" aria-hidden="true" tabindex="-1"></a>      <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Iteration&quot;</span>, i, <span class="st">&quot;Guess:&quot;</span>,</span>
+<span id="cb128-42"><a href="nn-mnist.html#cb128-42" aria-hidden="true" tabindex="-1"></a>            <span class="fu">which.max</span>(<span class="fu">as.vector</span>(model<span class="sc">$</span>active[[<span class="dv">2</span>]])) <span class="sc">-</span> <span class="dv">1</span>))</span>
+<span id="cb128-43"><a href="nn-mnist.html#cb128-43" aria-hidden="true" tabindex="-1"></a>      <span class="fu">print</span>(<span class="fu">matrix</span>(model<span class="sc">$</span>active[[<span class="dv">2</span>]]))</span>
+<span id="cb128-44"><a href="nn-mnist.html#cb128-44" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb128-45"><a href="nn-mnist.html#cb128-45" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;--------------------&quot;
+## [1] &quot;Iteration 10 Guess: 4&quot;
+##               [,1]
+##  [1,] 0.1616835267
+##  [2,] 0.1264294918
+##  [3,] 0.0682142668
+##  [4,] 0.2038745379
+##  [5,] 0.9941272877
+##  [6,] 0.0569540176
+##  [7,] 0.0008336876
+##  [8,] 0.9663277915
+##  [9,] 0.0124175449
+## [10,] 0.0368053450
+## [1] &quot;--------------------&quot;
+## [1] &quot;Iteration 20 Guess: 4&quot;
+##               [,1]
+##  [1,] 0.1014268525
+##  [2,] 0.0899760227
+##  [3,] 0.0597189587
+##  [4,] 0.1110630825
+##  [5,] 0.9925675618
+##  [6,] 0.6975266674
+##  [7,] 0.0008336663
+##  [8,] 0.7302379058
+##  [9,] 0.0123492076
+## [10,] 0.0352006765
+## [1] &quot;--------------------&quot;
+## [1] &quot;Iteration 30 Guess: 4&quot;
+##              [,1]
+##  [1,] 0.079083747
+##  [2,] 0.073107411
+##  [3,] 0.053704279
+##  [4,] 0.083607664
+##  [5,] 0.989914254
+##  [6,] 0.875496648
+##  [7,] 0.000833645
+##  [8,] 0.155205187
+##  [9,] 0.012281978
+## [10,] 0.033785417
+## [1] &quot;--------------------&quot;
+## [1] &quot;Iteration 40 Guess: 4&quot;
+##               [,1]
+##  [1,] 0.0667571496
+##  [2,] 0.0629770018
+##  [3,] 0.0491670468
+##  [4,] 0.0694771807
+##  [5,] 0.9844647273
+##  [6,] 0.9107698051
+##  [7,] 0.0008336237
+##  [8,] 0.0996000976
+##  [9,] 0.0122158252
+## [10,] 0.0325252556
+## [1] &quot;--------------------&quot;
+## [1] &quot;Iteration 50 Guess: 4&quot;
+##               [,1]
+##  [1,] 0.0587198417
+##  [2,] 0.0560652580
+##  [3,] 0.0455913634
+##  [4,] 0.0605741282
+##  [5,] 0.9677833352
+##  [6,] 0.9273060284
+##  [7,] 0.0008336023
+##  [8,] 0.0781756562
+##  [9,] 0.0121507221
+## [10,] 0.0313939679
+## [1] &quot;--------------------&quot;
+## [1] &quot;Iteration 60 Guess: 5&quot;
+##              [,1]
+##  [1,] 0.052966646
+##  [2,] 0.050975717
+##  [3,] 0.042681855
+##  [4,] 0.054330558
+##  [5,] 0.768476767
+##  [6,] 0.937292543
+##  [7,] 0.000833581
+##  [8,] 0.066196623
+##  [9,] 0.012086641
+## [10,] 0.030371123
+## [1] &quot;--------------------&quot;
+## [1] &quot;Iteration 250 Guess: 5&quot;
+##               [,1]
+##  [1,] 0.0244670572
+##  [2,] 0.0242512556
+##  [3,] 0.0231158041
+##  [4,] 0.0246047195
+##  [5,] 0.0282727666
+##  [6,] 0.9746982789
+##  [7,] 0.0008331762
+##  [8,] 0.0255317191
+##  [9,] 0.0110330649
+## [10,] 0.0203249132</code></pre>
+<p>Recall that since R indexes by 1 we need to subtract 1 from <code>which.max()</code> to get the actual number.</p>
+<p>By iteration 60 it switched its answer to 5 but still held onto 4 as a somewhat close second.</p>
+<p>We notice however by the 250th iteration, on its noble quest to clear the remnants of its error, it&#x2019;s certain the correct answer&#x2019;s 5.</p>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="nn-mnist.html#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(errs)){</span>
+<span id="cb130-2"><a href="nn-mnist.html#cb130-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(i <span class="sc">%%</span> <span class="dv">10</span> <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;&amp;</span> (i <span class="sc">&lt;</span> <span class="dv">70</span> <span class="sc">||</span> i <span class="sc">==</span> N)){</span>
+<span id="cb130-3"><a href="nn-mnist.html#cb130-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Errors -- Iteration&quot;</span>, i))</span>
+<span id="cb130-4"><a href="nn-mnist.html#cb130-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">paste</span>(errs[[i]]))</span>
+<span id="cb130-5"><a href="nn-mnist.html#cb130-5" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb130-6"><a href="nn-mnist.html#cb130-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;Errors -- Iteration 10&quot;
+##  [1] &quot;0.161683526706662&quot;    &quot;0.126429491773764&quot;    &quot;0.0682142668115703&quot;  
+##  [4] &quot;0.203874537919715&quot;    &quot;0.994127287704014&quot;    &quot;-0.943045982396918&quot;  
+##  [7] &quot;0.000833687636843194&quot; &quot;0.966327791499464&quot;    &quot;0.0124175448799003&quot;  
+## [10] &quot;0.0368053450002197&quot;  
+## [1] &quot;Errors -- Iteration 20&quot;
+##  [1] &quot;0.101426852454415&quot;   &quot;0.0899760227150036&quot;  &quot;0.0597189587251529&quot; 
+##  [4] &quot;0.11106308253193&quot;    &quot;0.992567561771656&quot;   &quot;-0.302473332555646&quot; 
+##  [7] &quot;0.00083366630628941&quot; &quot;0.730237905751141&quot;   &quot;0.0123492076029388&quot; 
+## [10] &quot;0.0352006764929306&quot; 
+## [1] &quot;Errors -- Iteration 30&quot;
+##  [1] &quot;0.0790837469870936&quot;   &quot;0.073107410627621&quot;    &quot;0.0537042786567521&quot;  
+##  [4] &quot;0.0836076637326415&quot;   &quot;0.989914254344727&quot;    &quot;-0.124503351562107&quot;  
+##  [7] &quot;0.000833644977371914&quot; &quot;0.155205186699078&quot;    &quot;0.0122819775282261&quot;  
+## [10] &quot;0.0337854167653882&quot;  
+## [1] &quot;Errors -- Iteration 40&quot;
+##  [1] &quot;0.0667571495768358&quot;   &quot;0.0629770017850248&quot;   &quot;0.0491670467964501&quot;  
+##  [4] &quot;0.0694771807081971&quot;   &quot;0.984464727283454&quot;    &quot;-0.0892301948984062&quot; 
+##  [7] &quot;0.000833623650090492&quot; &quot;0.0996000976300502&quot;   &quot;0.0122158251682742&quot;  
+## [10] &quot;0.0325252556194334&quot;  
+## [1] &quot;Errors -- Iteration 50&quot;
+##  [1] &quot;0.0587198417202392&quot;   &quot;0.0560652580072607&quot;   &quot;0.0455913634312125&quot;  
+##  [4] &quot;0.0605741281916175&quot;   &quot;0.96778333516366&quot;     &quot;-0.072693971563165&quot;  
+##  [7] &quot;0.000833602324444938&quot; &quot;0.0781756561618741&quot;   &quot;0.0121507221215724&quot;  
+## [10] &quot;0.0313939678634957&quot;  
+## [1] &quot;Errors -- Iteration 60&quot;
+##  [1] &quot;0.0529666457980008&quot;   &quot;0.0509757169601339&quot;   &quot;0.0426818547984694&quot;  
+##  [4] &quot;0.0543305581185968&quot;   &quot;0.768476767077998&quot;    &quot;-0.062707456643689&quot;  
+##  [7] &quot;0.000833581000435041&quot; &quot;0.0661966226652927&quot;   &quot;0.0120866410217594&quot;  
+## [10] &quot;0.0303711231306996&quot;  
+## [1] &quot;Errors -- Iteration 250&quot;
+##  [1] &quot;0.0244670571849342&quot;  &quot;0.024251255591348&quot;   &quot;0.0231158041089027&quot; 
+##  [4] &quot;0.0246047194786425&quot;  &quot;0.0282727666393937&quot;  &quot;-0.0253017210800204&quot;
+##  [7] &quot;0.00083317615474425&quot; &quot;0.025531719110534&quot;   &quot;0.011033064925959&quot;  
+## [10] &quot;0.0203249132299526&quot;</code></pre>
+</div>
+<div id="aside-2" class="section level3 unnumbered hasAnchor">
+<h3>Aside<a href="nn-mnist.html#aside-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>&#x201C;Humanizing&#x201D; the algorithm as such helps shine a light on what the hidden features could represent in this kind of modeling:</p>
+<blockquote>
+<p>The training example (Figure <a href="nn-mnist.html#fig:import">6.1</a>) does kind of look like a 4 rotated 90 degrees clockwise &#x2013; so it&#x2019;s understandable why the model was confused for a while. It&#x2019;s also curious how in the early iterations it has 7 as a close second &#x2013; this 5 is written in a jagged form with edges like a 7, so it also makes sense.</p>
+</blockquote>
+<p>Additionally, recall that this model trained on one 5. The more training examples of 5s it&#x2019;s fed, the better it&#x2019;ll get at classifying different variations of handwritten 5s.</p>
+<p>Generally speaking, this model would be ran on all of the handwritten digits in the training set (0-9). Subsequently, the weights are adjusted in such a way that allows the model to take any of the aforementioned digits as input and properly classify which digit it is.</p>
+<p>Therefore, the more instances of each digit in the training set, the better the model is at classifying each digit and its respective handwritten variations.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="nn-xor.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": null,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

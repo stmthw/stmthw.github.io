@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang xml:lang>
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Chapter 3 Google Capstone [DA|R] | Data Portfolio</title>
+  <meta name="description" content="&lt;p&gt;My online portfolio using a minimalist theme.&lt;/p&gt;">
+  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Chapter 3 Google Capstone [DA|R] | Data Portfolio">
+  <meta property="og:type" content="book">
+  
+  <meta property="og:description" content="&lt;p&gt;My online portfolio using a minimalist theme.&lt;/p&gt;">
+  
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Chapter 3 Google Capstone [DA|R] | Data Portfolio">
+  
+  <meta name="twitter:description" content="&lt;p&gt;My online portfolio using a minimalist theme.&lt;/p&gt;">
+  
+
+<meta name="author" content="Matthew Robert Sears">
+
+
+<meta name="date" content="2022-09-30">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="nasa-svm.html"/>
+<link rel="next" href="rsql.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet">
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet">
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet">
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet">
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet">
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet">
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet">
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet">
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet">
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css" data-external="1"></head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Data Portfolio</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> README</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#structure"><i class="fa fa-check"></i><b>1.1</b> Structure</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#why-bookdown"><i class="fa fa-check"></i><b>1.2</b> Why Bookdown?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="nasa-svm.html"><a href="nasa-svm.html"><i class="fa fa-check"></i><b>2</b> NASA SVM [ML|PY]</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="nasa-svm.html"><a href="nasa-svm.html#description"><i class="fa fa-check"></i><b>2.1</b> Description</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="nasa-svm.html"><a href="nasa-svm.html#data"><i class="fa fa-check"></i><b>2.1.1</b> Data</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="nasa-svm.html"><a href="nasa-svm.html#algorithm"><i class="fa fa-check"></i><b>2.2</b> Algorithm</a></li>
+<li class="chapter" data-level="2.3" data-path="nasa-svm.html"><a href="nasa-svm.html#analysis"><i class="fa fa-check"></i><b>2.3</b> Analysis</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="nasa-svm.html"><a href="nasa-svm.html#scripts"><i class="fa fa-check"></i><b>2.3.1</b> Scripts</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="nasa-svm.html"><a href="nasa-svm.html#conclusions"><i class="fa fa-check"></i><b>2.4</b> Conclusions</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="nasa-svm.html"><a href="nasa-svm.html#todo"><i class="fa fa-check"></i><b>2.4.1</b> TODO?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="nasa-svm.html"><a href="nasa-svm.html#nasa-fw"><i class="fa fa-check"></i><b>2.5</b> Future Work?</a></li>
+<li class="chapter" data-level="" data-path="nasa-svm.html"><a href="nasa-svm.html#source-code"><i class="fa fa-check"></i>Source Code</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="google-capstone.html"><a href="google-capstone.html"><i class="fa fa-check"></i><b>3</b> Google Capstone [DA|R]</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="google-capstone.html"><a href="google-capstone.html#description-1"><i class="fa fa-check"></i><b>3.1</b> Description</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="google-capstone.html"><a href="google-capstone.html#scenario"><i class="fa fa-check"></i><b>3.1.1</b> Scenario</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="google-capstone.html"><a href="google-capstone.html#ask"><i class="fa fa-check"></i><b>3.2</b> Ask</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="google-capstone.html"><a href="google-capstone.html#objective"><i class="fa fa-check"></i><b>3.2.1</b> Objective</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="google-capstone.html"><a href="google-capstone.html#prepare-process"><i class="fa fa-check"></i><b>3.3</b> Prepare / Process</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="google-capstone.html"><a href="google-capstone.html#pre-processing-with-r"><i class="fa fa-check"></i><b>3.3.1</b> Pre-Processing with R</a></li>
+<li class="chapter" data-level="3.3.2" data-path="google-capstone.html"><a href="google-capstone.html#feature-engineering"><i class="fa fa-check"></i><b>3.3.2</b> Feature Engineering</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="google-capstone.html"><a href="google-capstone.html#analyze"><i class="fa fa-check"></i><b>3.4</b> Analyze</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="google-capstone.html"><a href="google-capstone.html#basic-descriptive-statistics"><i class="fa fa-check"></i><b>3.4.1</b> Basic Descriptive Statistics</a></li>
+<li class="chapter" data-level="3.4.2" data-path="google-capstone.html"><a href="google-capstone.html#viz-trip-behavior"><i class="fa fa-check"></i><b>3.4.2</b> Viz: Trip Behavior</a></li>
+<li class="chapter" data-level="3.4.3" data-path="google-capstone.html"><a href="google-capstone.html#viz-bike-choice"><i class="fa fa-check"></i><b>3.4.3</b> Viz: Bike Choice</a></li>
+<li class="chapter" data-level="3.4.4" data-path="google-capstone.html"><a href="google-capstone.html#viz-popular-routes"><i class="fa fa-check"></i><b>3.4.4</b> Viz: Popular Routes</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="google-capstone.html"><a href="google-capstone.html#report"><i class="fa fa-check"></i><b>3.5</b> Share &amp; Act (Final Report)</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="google-capstone.html"><a href="google-capstone.html#key-observations"><i class="fa fa-check"></i><b>3.5.1</b> Key Observations</a></li>
+<li class="chapter" data-level="3.5.2" data-path="google-capstone.html"><a href="google-capstone.html#actionables"><i class="fa fa-check"></i><b>3.5.2</b> Actionables</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="rsql.html"><a href="rsql.html"><i class="fa fa-check"></i><b>4</b> Visualizing Sentiment [DA|R]</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="rsql.html"><a href="rsql.html#description-2"><i class="fa fa-check"></i><b>4.1</b> Description</a></li>
+<li class="chapter" data-level="4.2" data-path="rsql.html"><a href="rsql.html#setup"><i class="fa fa-check"></i><b>4.2</b> Setup</a></li>
+<li class="chapter" data-level="4.3" data-path="rsql.html"><a href="rsql.html#create-sql-database"><i class="fa fa-check"></i><b>4.3</b> Create SQL Database</a>
+<ul>
+<li class="chapter" data-level="" data-path="rsql.html"><a href="rsql.html#aside"><i class="fa fa-check"></i>Aside</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="rsql.html"><a href="rsql.html#write-query-table"><i class="fa fa-check"></i><b>4.4</b> Write &amp; Query Table</a></li>
+<li class="chapter" data-level="4.5" data-path="rsql.html"><a href="rsql.html#analysis-1"><i class="fa fa-check"></i><b>4.5</b> Analysis</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="rsql.html"><a href="rsql.html#sentiment-word-clouds"><i class="fa fa-check"></i><b>4.5.1</b> Sentiment Word Clouds</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="rsql.html"><a href="rsql.html#alter-update-table"><i class="fa fa-check"></i><b>4.6</b> Alter &amp; Update Table</a></li>
+<li class="chapter" data-level="4.7" data-path="rsql.html"><a href="rsql.html#r-sql"><i class="fa fa-check"></i><b>4.7</b> R &amp; SQL</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="nn-xor.html"><a href="nn-xor.html"><i class="fa fa-check"></i><b>5</b> NN: XOR [ML|PY,MATH]</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="nn-xor.html"><a href="nn-xor.html#backpropagation-and-xor"><i class="fa fa-check"></i><b>5.1</b> Backpropagation and XOR</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="nn-xor.html"><a href="nn-xor.html#motivation"><i class="fa fa-check"></i><b>5.1.1</b> Motivation</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="nn-xor.html"><a href="nn-xor.html#activation"><i class="fa fa-check"></i><b>5.2</b> Activation</a></li>
+<li class="chapter" data-level="5.3" data-path="nn-xor.html"><a href="nn-xor.html#multivariable-calculus"><i class="fa fa-check"></i><b>5.3</b> Multivariable Calculus</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="nn-xor.html"><a href="nn-xor.html#dissecting-the-network"><i class="fa fa-check"></i><b>5.3.1</b> Dissecting the Network</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="nn-xor.html"><a href="nn-xor.html#conclusion"><i class="fa fa-check"></i><b>5.4</b> Conclusion</a></li>
+<li class="chapter" data-level="5.5" data-path="nn-xor.html"><a href="nn-xor.html#learning-xor-in-tensorflow"><i class="fa fa-check"></i><b>5.5</b> Learning XOR in TensorFlow</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="nn-mnist.html"><a href="nn-mnist.html"><i class="fa fa-check"></i><b>6</b> NN: MNIST [ML|R,MATH]</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="nn-mnist.html"><a href="nn-mnist.html#setup-importing-data"><i class="fa fa-check"></i><b>6.1</b> Setup &amp; Importing Data</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="nn-mnist.html"><a href="nn-mnist.html#data-1"><i class="fa fa-check"></i><b>6.1.1</b> Data</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="nn-mnist.html"><a href="nn-mnist.html#algorithm-1"><i class="fa fa-check"></i><b>6.2</b> Algorithm</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="nn-mnist.html"><a href="nn-mnist.html#initialize"><i class="fa fa-check"></i><b>6.2.1</b> Initialize</a></li>
+<li class="chapter" data-level="6.2.2" data-path="nn-mnist.html"><a href="nn-mnist.html#learn"><i class="fa fa-check"></i><b>6.2.2</b> Learn</a></li>
+<li class="chapter" data-level="" data-path="nn-mnist.html"><a href="nn-mnist.html#aside-2"><i class="fa fa-check"></i>Aside</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data Portfolio</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="google-capstone" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Google Capstone [DA|R]<a href="google-capstone.html#google-capstone" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>In my free time, I audited the <a href="https://www.coursera.org/professional-certificates/google-data-analytics">Google Data Analytics</a> courses and completed its capstone.</p>
+<div id="description-1" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Description<a href="google-capstone.html#description-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Performed data analysis for a fictional bike-share company to illustrate the data analysis process learned from the <a href="https://www.coursera.org/professional-certificates/google-data-analytics">Google Data Analytics Professional Certificate</a>:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Ask:</strong> Business objective, questions, challenges</li>
+<li><strong>Prepare:</strong> Data generation, collection, storage, and management</li>
+<li><strong>Process</strong> Data cleaning, ensuring data integrity</li>
+<li><strong>Analyze:</strong> Data exploration, finding patterns/trends</li>
+<li><strong>Share:</strong> Interpreting and communicating results</li>
+<li><strong>Act:</strong> Using insights to solve the problem</li>
+</ol>
+<div id="scenario" class="section level3 hasAnchor" number="3.1.1">
+<h3><span class="header-section-number">3.1.1</span> Scenario<a href="google-capstone.html#scenario" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Cyclistic&#x2019;s director of marketing believes the company&#x2019;s future success depends on maximizing the number of annual memberships. Customers who purchase single-ride or full-day passes are referred to as casual riders.</p>
+<ul>
+<li>Your team wants to understand how casual riders and annual members use Cyclistic bikes differently</li>
+</ul>
+<p>From these insights, a new marketing strategy will be designed to convert casuals into members.</p>
+</div>
+</div>
+<div id="ask" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Ask<a href="google-capstone.html#ask" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Three questions will guide the future marketing program. The director assigned me the <strong>first</strong>:</p>
+<ol style="list-style-type: decimal">
+<li><strong>How do annual members and casual riders use Cyclistic bikes differently?</strong></li>
+<li>Why would casual riders buy Cyclistic annual memberships?</li>
+<li>How can Cyclistic use digital media to influence casual riders to become members?</li>
+</ol>
+<p>The task is to produce a report with the following deliverables:</p>
+<ol style="list-style-type: decimal">
+<li>A clear statement of the business task</li>
+<li>A description of all data sources and software used</li>
+<li>Documentation of any cleaning or manipulation of data</li>
+<li>A summary of the analysis</li>
+<li>Supporting visualizations and key findings</li>
+<li>Recommendations based on analysis</li>
+</ol>
+<div id="objective" class="section level3 hasAnchor" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> Objective<a href="google-capstone.html#objective" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Analyze Cyclistic riders&#x2019; usage patterns a for novel marketing membership conversion program.</p>
+</div>
+</div>
+<div id="prepare-process" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Prepare / Process<a href="google-capstone.html#prepare-process" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The (fictional) historical data, <a href="https://divvy-tripdata.s3.amazonaws.com/index.html">divvy-tripdata</a>, is publicly available and hosted on AWS.</p>
+<p>I used the Amazon Web Services Command Line Interface (AWS CLI) to scrape a year&#x2019;s worth of data (August 2021 - July 2022 inclusive):</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode zsh"><code class="sourceCode zsh"><span id="cb15-1"><a href="google-capstone.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/zsh</span></span>
+<span id="cb15-2"><a href="google-capstone.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Bucket name is simply from url: &lt;bucket_name&gt;.s3.amazonaws.com</span></span>
+<span id="cb15-3"><a href="google-capstone.html#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># First exclude all objects, then include those needed</span></span>
+<span id="cb15-4"><a href="google-capstone.html#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># This will download the files into current directory, then unzip and rm zip</span></span>
+<span id="cb15-5"><a href="google-capstone.html#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="ex">aws</span> s3 sync s3://divvy-tripdata . <span class="dt">\</span></span>
+<span id="cb15-6"><a href="google-capstone.html#cb15-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">--exclude</span> <span class="st">&apos;*&apos;</span> <span class="dt">\</span></span>
+<span id="cb15-7"><a href="google-capstone.html#cb15-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">--include</span> <span class="st">&apos;20210[8-9]*.zip&apos;</span> <span class="dt">\</span></span>
+<span id="cb15-8"><a href="google-capstone.html#cb15-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">--include</span> <span class="st">&apos;20211[0-2]*.zip&apos;</span> <span class="dt">\</span></span>
+<span id="cb15-9"><a href="google-capstone.html#cb15-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">--include</span> <span class="st">&apos;20220[1-7]*.zip&apos;</span> <span class="dt">\</span></span>
+<span id="cb15-10"><a href="google-capstone.html#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="kw">&amp;&amp;</span> <span class="fu">unzip</span> <span class="st">&apos;*.zip&apos;</span> <span class="kw">&amp;&amp;</span> <span class="fu">rm</span> <span class="pp">*</span>.zip <span class="kw">&amp;&amp;</span> <span class="fu">rm</span> <span class="at">-rf</span> __MACOSX/</span></code></pre></div>
+<p>I baked the following packages into some boilerplate code, then defined any necessary functions for pre-processing:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="google-capstone.html#cb16-1" aria-hidden="true" tabindex="-1"></a>packages <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;tidyverse&quot;</span>, <span class="st">&quot;here&quot;</span>, <span class="st">&quot;skimr&quot;</span>, <span class="st">&quot;janitor&quot;</span>, <span class="st">&quot;Hmisc&quot;</span>, <span class="st">&quot;geosphere&quot;</span>,</span>
+<span id="cb16-2"><a href="google-capstone.html#cb16-2" aria-hidden="true" tabindex="-1"></a>              <span class="st">&quot;sjmisc&quot;</span>, <span class="st">&quot;lubridate&quot;</span>, <span class="st">&quot;scales&quot;</span>, <span class="st">&quot;RColorBrewer&quot;</span>, <span class="st">&quot;ggmap&quot;</span>, <span class="st">&quot;gridExtra&quot;</span>)</span>
+<span id="cb16-3"><a href="google-capstone.html#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="google-capstone.html#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (package <span class="cf">in</span> packages) {</span>
+<span id="cb16-5"><a href="google-capstone.html#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(package, <span class="at">character.only =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb16-6"><a href="google-capstone.html#cb16-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;Installing package(s)&quot;</span>)</span>
+<span id="cb16-7"><a href="google-capstone.html#cb16-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">install.packages</span>(package, <span class="at">repos =</span> <span class="st">&quot;http://cran.us.r-project.org&quot;</span>)</span>
+<span id="cb16-8"><a href="google-capstone.html#cb16-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">library</span>(package, <span class="at">character.only =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb16-9"><a href="google-capstone.html#cb16-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">require</span>(package, <span class="at">character.only =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb16-10"><a href="google-capstone.html#cb16-10" aria-hidden="true" tabindex="-1"></a>      <span class="fu">print</span>(<span class="st">&quot;Package(s) installed and loaded&quot;</span>)</span>
+<span id="cb16-11"><a href="google-capstone.html#cb16-11" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb16-12"><a href="google-capstone.html#cb16-12" aria-hidden="true" tabindex="-1"></a>      <span class="fu">stop</span>(<span class="st">&quot;Could not install package(s)&quot;</span>)</span>
+<span id="cb16-13"><a href="google-capstone.html#cb16-13" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb16-14"><a href="google-capstone.html#cb16-14" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb16-15"><a href="google-capstone.html#cb16-15" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb16-16"><a href="google-capstone.html#cb16-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-17"><a href="google-capstone.html#cb16-17" aria-hidden="true" tabindex="-1"></a><span class="co"># dplyr case_when + factors</span></span>
+<span id="cb16-18"><a href="google-capstone.html#cb16-18" aria-hidden="true" tabindex="-1"></a>fct_case_when <span class="ot">&lt;-</span> <span class="cf">function</span>(...) {</span>
+<span id="cb16-19"><a href="google-capstone.html#cb16-19" aria-hidden="true" tabindex="-1"></a>  args <span class="ot">&lt;-</span> <span class="fu">as.list</span>(<span class="fu">match.call</span>())</span>
+<span id="cb16-20"><a href="google-capstone.html#cb16-20" aria-hidden="true" tabindex="-1"></a>  levels <span class="ot">&lt;-</span> <span class="fu">sapply</span>(args[<span class="sc">-</span><span class="dv">1</span>], <span class="cf">function</span>(f) f[[<span class="dv">3</span>]])  <span class="co"># extract RHS of formula</span></span>
+<span id="cb16-21"><a href="google-capstone.html#cb16-21" aria-hidden="true" tabindex="-1"></a>  levels <span class="ot">&lt;-</span> levels[<span class="sc">!</span><span class="fu">is.na</span>(levels)]</span>
+<span id="cb16-22"><a href="google-capstone.html#cb16-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">factor</span>(<span class="fu">case_when</span>(...), <span class="at">levels=</span>levels)</span>
+<span id="cb16-23"><a href="google-capstone.html#cb16-23" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div id="pre-processing-with-r" class="section level3 hasAnchor" number="3.3.1">
+<h3><span class="header-section-number">3.3.1</span> Pre-Processing with R<a href="google-capstone.html#pre-processing-with-r" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>My workflow to ensure the data&#x2019;s integrity; cleaning and formatting it such that it&#x2019;s ready for analysis:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="google-capstone.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Store names of the files in list, path = . (default)</span></span>
+<span id="cb17-2"><a href="google-capstone.html#cb17-2" aria-hidden="true" tabindex="-1"></a>files <span class="ot">=</span> <span class="fu">list.files</span>(<span class="at">pattern =</span> <span class="st">&quot;*tripdata.csv&quot;</span>)</span>
+<span id="cb17-3"><a href="google-capstone.html#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="google-capstone.html#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Use those names to read in the csvs and properly rename them</span></span>
+<span id="cb17-5"><a href="google-capstone.html#cb17-5" aria-hidden="true" tabindex="-1"></a>bike_data_raw <span class="ot">&lt;-</span> <span class="fu">lapply</span>(files, read_csv, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb17-6"><a href="google-capstone.html#cb17-6" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">setNames</span>(<span class="fu">paste0</span>(<span class="fu">substring</span>(files,<span class="dv">1</span>,<span class="dv">6</span>), <span class="st">&quot;_bike_data&quot;</span>))</span>
+<span id="cb17-7"><a href="google-capstone.html#cb17-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-8"><a href="google-capstone.html#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert relevant data to factors and merge list into a single dataframe</span></span>
+<span id="cb17-9"><a href="google-capstone.html#cb17-9" aria-hidden="true" tabindex="-1"></a>bike_data_raw <span class="ot">&lt;-</span> bike_data_raw <span class="sc">%&gt;%</span></span>
+<span id="cb17-10"><a href="google-capstone.html#cb17-10" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">lapply</span>(mutate,</span>
+<span id="cb17-11"><a href="google-capstone.html#cb17-11" aria-hidden="true" tabindex="-1"></a>                          <span class="at">member_casual =</span> <span class="fu">as.factor</span>(<span class="fu">str_to_title</span>(member_casual)),</span>
+<span id="cb17-12"><a href="google-capstone.html#cb17-12" aria-hidden="true" tabindex="-1"></a>                          <span class="at">rideable_type =</span> <span class="fu">as.factor</span>(rideable_type)) <span class="sc">%&gt;%</span></span>
+<span id="cb17-13"><a href="google-capstone.html#cb17-13" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">bind_rows</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="google-capstone.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(bike_data_raw)</span></code></pre></div>
+<pre><code>## Rows: 5,901,463
+## Columns: 13
+## $ ride_id            &lt;chr&gt; &quot;99103BB87CC6C1BB&quot;, &quot;EAFCCCFB0A3FC5A1&quot;, &quot;9EF4F46C57&#x2026;
+## $ rideable_type      &lt;fct&gt; electric_bike, electric_bike, electric_bike, electr&#x2026;
+## $ started_at         &lt;dttm&gt; 2021-08-10 17:15:49, 2021-08-10 17:23:14, 2021-08-&#x2026;
+## $ ended_at           &lt;dttm&gt; 2021-08-10 17:22:44, 2021-08-10 17:39:24, 2021-08-&#x2026;
+## $ start_station_name &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,&#x2026;
+## $ start_station_id   &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,&#x2026;
+## $ end_station_name   &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, &quot;Clark St &amp; Grace St&quot;, &#x2026;
+## $ end_station_id     &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, &quot;TA1307000127&quot;, NA, NA,&#x2026;
+## $ start_lat          &lt;dbl&gt; 41.77000, 41.77000, 41.95000, 41.97000, 41.79000, 4&#x2026;
+## $ start_lng          &lt;dbl&gt; -87.68000, -87.68000, -87.65000, -87.67000, -87.600&#x2026;
+## $ end_lat            &lt;dbl&gt; 41.77000, 41.77000, 41.97000, 41.95000, 41.77000, 4&#x2026;
+## $ end_lng            &lt;dbl&gt; -87.68000, -87.63000, -87.66000, -87.65000, -87.620&#x2026;
+## $ member_casual      &lt;fct&gt; Member, Member, Member, Member, Member, Member, Mem&#x2026;</code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="google-capstone.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Columns containing NAs</span></span>
+<span id="cb20-2"><a href="google-capstone.html#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(bike_data_raw)[<span class="fu">colSums</span>(<span class="fu">is.na</span>(bike_data_raw)) <span class="sc">&gt;</span> <span class="dv">0</span>]</span></code></pre></div>
+<pre><code>## [1] &quot;start_station_name&quot; &quot;start_station_id&quot;   &quot;end_station_name&quot;  
+## [4] &quot;end_station_id&quot;     &quot;end_lat&quot;            &quot;end_lng&quot;</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="google-capstone.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop NA</span></span>
+<span id="cb22-2"><a href="google-capstone.html#cb22-2" aria-hidden="true" tabindex="-1"></a>bike_data_raw <span class="ot">&lt;-</span> <span class="fu">drop_na</span>(bike_data_raw)</span>
+<span id="cb22-3"><a href="google-capstone.html#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-4"><a href="google-capstone.html#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if there are duplicate ride_IDs</span></span>
+<span id="cb22-5"><a href="google-capstone.html#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">n_distinct</span>(bike_data_raw<span class="sc">$</span>ride_id) <span class="sc">!=</span> <span class="fu">nrow</span>(bike_data_raw)) {</span>
+<span id="cb22-6"><a href="google-capstone.html#cb22-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Remove duplicate rows</span></span>
+<span id="cb22-7"><a href="google-capstone.html#cb22-7" aria-hidden="true" tabindex="-1"></a>  bike_data_raw <span class="ot">&lt;-</span> bike_data_raw <span class="sc">%&gt;%</span></span>
+<span id="cb22-8"><a href="google-capstone.html#cb22-8" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">distinct</span>(ride_id, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb22-9"><a href="google-capstone.html#cb22-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb22-10"><a href="google-capstone.html#cb22-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-11"><a href="google-capstone.html#cb22-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract columns containing character vectors</span></span>
+<span id="cb22-12"><a href="google-capstone.html#cb22-12" aria-hidden="true" tabindex="-1"></a>tmp_char_cols <span class="ot">&lt;-</span> bike_data_raw[, <span class="fu">sapply</span>(bike_data_raw, class) <span class="sc">==</span> <span class="st">&apos;character&apos;</span>]</span>
+<span id="cb22-13"><a href="google-capstone.html#cb22-13" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(tmp_char_cols)</span></code></pre></div>
+<pre><code>## [1] &quot;ride_id&quot;            &quot;start_station_name&quot; &quot;start_station_id&quot;  
+## [4] &quot;end_station_name&quot;   &quot;end_station_id&quot;</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="google-capstone.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Find which rows are test rows</span></span>
+<span id="cb24-2"><a href="google-capstone.html#cb24-2" aria-hidden="true" tabindex="-1"></a>tmp_test_rows <span class="ot">&lt;-</span> <span class="fu">which</span>(</span>
+<span id="cb24-3"><a href="google-capstone.html#cb24-3" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">rowSums</span>(</span>
+<span id="cb24-4"><a href="google-capstone.html#cb24-4" aria-hidden="true" tabindex="-1"></a>                     <span class="st">`</span><span class="at">dim&lt;-</span><span class="st">`</span>(<span class="fu">grepl</span>(<span class="st">&quot;TEST|TESTING&quot;</span>, <span class="fu">as.matrix</span>(tmp_char_cols)),</span>
+<span id="cb24-5"><a href="google-capstone.html#cb24-5" aria-hidden="true" tabindex="-1"></a>                             <span class="fu">dim</span>(tmp_char_cols))</span>
+<span id="cb24-6"><a href="google-capstone.html#cb24-6" aria-hidden="true" tabindex="-1"></a>                          ) <span class="sc">&gt;</span> <span class="dv">0</span></span>
+<span id="cb24-7"><a href="google-capstone.html#cb24-7" aria-hidden="true" tabindex="-1"></a>                      )</span>
+<span id="cb24-8"><a href="google-capstone.html#cb24-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-9"><a href="google-capstone.html#cb24-9" aria-hidden="true" tabindex="-1"></a><span class="co"># View and confirm (subsetted by id for example)</span></span>
+<span id="cb24-10"><a href="google-capstone.html#cb24-10" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(tmp_char_cols[tmp_test_rows, <span class="st">&apos;end_station_id&apos;</span>])</span></code></pre></div>
+<pre><code>## # A tibble: 344 &#xD7; 1
+##    end_station_id                     
+##    &lt;chr&gt;                              
+##  1 Hubbard Bike-checking (LBS-WH-TEST)
+##  2 13073                              
+##  3 18067                              
+##  4 637                                
+##  5 TA1307000159                       
+##  6 13132                              
+##  7 TA1309000032                       
+##  8 13434                              
+##  9 TA1305000041                       
+## 10 13256                              
+## # &#x2026; with 334 more rows</code></pre>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="google-capstone.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Store clean data and clean workspace</span></span>
+<span id="cb26-2"><a href="google-capstone.html#cb26-2" aria-hidden="true" tabindex="-1"></a>bike_data <span class="ot">&lt;-</span> bike_data_raw[<span class="sc">-</span>tmp_test_rows, ]</span>
+<span id="cb26-3"><a href="google-capstone.html#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(files, bike_data_raw, <span class="at">list =</span> <span class="fu">ls</span>(<span class="at">pattern=</span><span class="st">&apos;^tmp_&apos;</span>))</span>
+<span id="cb26-4"><a href="google-capstone.html#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-5"><a href="google-capstone.html#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(bike_data)</span></code></pre></div>
+<pre><code>## Rows: 4,628,134
+## Columns: 13
+## $ ride_id            &lt;chr&gt; &quot;DD06751C6019D865&quot;, &quot;79973DC3B232048F&quot;, &quot;0249AD4B25&#x2026;
+## $ rideable_type      &lt;fct&gt; classic_bike, classic_bike, classic_bike, classic_b&#x2026;
+## $ started_at         &lt;dttm&gt; 2021-08-08 17:21:26, 2021-08-27 08:53:52, 2021-08-&#x2026;
+## $ ended_at           &lt;dttm&gt; 2021-08-08 17:25:37, 2021-08-27 09:18:29, 2021-08-&#x2026;
+## $ start_station_name &lt;chr&gt; &quot;Desplaines St &amp; Kinzie St&quot;, &quot;Larrabee St &amp; Armitag&#x2026;
+## $ start_station_id   &lt;chr&gt; &quot;TA1306000003&quot;, &quot;TA1309000006&quot;, &quot;13157&quot;, &quot;13042&quot;, &quot;&#x2026;
+## $ end_station_name   &lt;chr&gt; &quot;Kingsbury St &amp; Kinzie St&quot;, &quot;Michigan Ave &amp; Oak St&quot;&#x2026;
+## $ end_station_id     &lt;chr&gt; &quot;KA1503000043&quot;, &quot;13042&quot;, &quot;13157&quot;, &quot;13042&quot;, &quot;13042&quot;,&#x2026;
+## $ start_lat          &lt;dbl&gt; 41.88872, 41.91808, 41.87773, 41.90096, 41.90096, 4&#x2026;
+## $ start_lng          &lt;dbl&gt; -87.64445, -87.64375, -87.65479, -87.62378, -87.623&#x2026;
+## $ end_lat            &lt;dbl&gt; 41.88918, 41.90096, 41.87773, 41.90096, 41.90096, 4&#x2026;
+## $ end_lng            &lt;dbl&gt; -87.63851, -87.62378, -87.65479, -87.62378, -87.623&#x2026;
+## $ member_casual      &lt;fct&gt; Member, Member, Member, Casual, Casual, Casual, Cas&#x2026;</code></pre>
+</div>
+<div id="feature-engineering" class="section level3 hasAnchor" number="3.3.2">
+<h3><span class="header-section-number">3.3.2</span> Feature Engineering<a href="google-capstone.html#feature-engineering" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>I used the <strong>geosphere</strong> package <span class="citation">(<a href="#ref-R-geosphere" role="doc-biblioref">Hijmans 2021</a>)</span> to compute the distance between starting and ending coordinates and implemented <strong>lubridate</strong> <span class="citation">(<a href="#ref-R-lubridate" role="doc-biblioref">Spinu, Grolemund, and Wickham 2021</a>)</span> to parse starting dates of trips into buckets. The previously defined function <code>fct_case_when()</code> allows me to further classify the month bucket into factors.</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="google-capstone.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Features for data integrity: trip_distance (miles), speed (mph)</span></span>
+<span id="cb28-2"><a href="google-capstone.html#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="co"># The rest are engineered for deeper analysis</span></span>
+<span id="cb28-3"><a href="google-capstone.html#cb28-3" aria-hidden="true" tabindex="-1"></a>bike_data <span class="ot">&lt;-</span> bike_data <span class="sc">%&gt;%</span></span>
+<span id="cb28-4"><a href="google-capstone.html#cb28-4" aria-hidden="true" tabindex="-1"></a>               <span class="fu">mutate</span>(<span class="at">trip_duration =</span> <span class="fu">as.numeric</span>(<span class="fu">difftime</span>(ended_at, started_at, <span class="at">units =</span> <span class="st">&quot;hours&quot;</span>)),</span>
+<span id="cb28-5"><a href="google-capstone.html#cb28-5" aria-hidden="true" tabindex="-1"></a>                      <span class="at">trip_distance =</span> <span class="fu">distHaversine</span>(<span class="fu">cbind</span>(start_lng, start_lat),</span>
+<span id="cb28-6"><a href="google-capstone.html#cb28-6" aria-hidden="true" tabindex="-1"></a>                                                    <span class="fu">cbind</span>(end_lng, end_lat))<span class="sc">/</span><span class="fl">1609.35</span>,</span>
+<span id="cb28-7"><a href="google-capstone.html#cb28-7" aria-hidden="true" tabindex="-1"></a>                              <span class="at">speed =</span> trip_distance<span class="sc">/</span>trip_duration,</span>
+<span id="cb28-8"><a href="google-capstone.html#cb28-8" aria-hidden="true" tabindex="-1"></a>                          <span class="at">trip_hour =</span> <span class="fu">hour</span>(started_at),</span>
+<span id="cb28-9"><a href="google-capstone.html#cb28-9" aria-hidden="true" tabindex="-1"></a>                           <span class="at">trip_day =</span> <span class="fu">wday</span>(started_at, <span class="at">label =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb28-10"><a href="google-capstone.html#cb28-10" aria-hidden="true" tabindex="-1"></a>                         <span class="at">trip_month =</span> <span class="fu">month</span>(started_at, <span class="at">label =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb28-11"><a href="google-capstone.html#cb28-11" aria-hidden="true" tabindex="-1"></a>                          <span class="at">afternoon =</span> trip_hour <span class="sc">%in%</span> <span class="fu">seq</span>(<span class="dv">12</span>,<span class="dv">18</span>),</span>
+<span id="cb28-12"><a href="google-capstone.html#cb28-12" aria-hidden="true" tabindex="-1"></a>                            <span class="at">weekend =</span> <span class="fu">as.integer</span>(trip_day) <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">6</span>, <span class="dv">7</span>),</span>
+<span id="cb28-13"><a href="google-capstone.html#cb28-13" aria-hidden="true" tabindex="-1"></a>                             <span class="at">season =</span> <span class="fu">fct_case_when</span>(<span class="fu">as.integer</span>(trip_month) <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">1</span>, <span class="dv">2</span>) <span class="sc">~</span> <span class="st">&quot;Winter&quot;</span>,</span>
+<span id="cb28-14"><a href="google-capstone.html#cb28-14" aria-hidden="true" tabindex="-1"></a>                                                    <span class="fu">as.integer</span>(trip_month) <span class="sc">%in%</span> <span class="fu">seq</span>(<span class="dv">3</span>, <span class="dv">5</span>)   <span class="sc">~</span> <span class="st">&quot;Spring&quot;</span>,</span>
+<span id="cb28-15"><a href="google-capstone.html#cb28-15" aria-hidden="true" tabindex="-1"></a>                                                    <span class="fu">as.integer</span>(trip_month) <span class="sc">%in%</span> <span class="fu">seq</span>(<span class="dv">6</span>, <span class="dv">8</span>)   <span class="sc">~</span> <span class="st">&quot;Summer&quot;</span>,</span>
+<span id="cb28-16"><a href="google-capstone.html#cb28-16" aria-hidden="true" tabindex="-1"></a>                                                    <span class="fu">as.integer</span>(trip_month) <span class="sc">%in%</span> <span class="fu">seq</span>(<span class="dv">9</span>, <span class="dv">11</span>)  <span class="sc">~</span> <span class="st">&quot;Fall&quot;</span>),</span>
+<span id="cb28-17"><a href="google-capstone.html#cb28-17" aria-hidden="true" tabindex="-1"></a>                              <span class="at">route =</span> <span class="fu">paste</span>(start_station_name, end_station_name, <span class="at">sep =</span> <span class="st">&quot; to &quot;</span>)</span>
+<span id="cb28-18"><a href="google-capstone.html#cb28-18" aria-hidden="true" tabindex="-1"></a>                     )</span>
+<span id="cb28-19"><a href="google-capstone.html#cb28-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-20"><a href="google-capstone.html#cb28-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Data verification: Are there any immediately &quot;impossible&quot; outliers?</span></span>
+<span id="cb28-21"><a href="google-capstone.html#cb28-21" aria-hidden="true" tabindex="-1"></a><span class="co">#                    - nonpositive trip durations and extreme speeds</span></span>
+<span id="cb28-22"><a href="google-capstone.html#cb28-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Caveats: speed = dist/time used, idea is to appromixate the beeline</span></span>
+<span id="cb28-23"><a href="google-capstone.html#cb28-23" aria-hidden="true" tabindex="-1"></a><span class="co">#          speed one must go to reach destination in given time</span></span>
+<span id="cb28-24"><a href="google-capstone.html#cb28-24" aria-hidden="true" tabindex="-1"></a><span class="co">#          and compare to max speed possible on bike (~30 mph),</span></span>
+<span id="cb28-25"><a href="google-capstone.html#cb28-25" aria-hidden="true" tabindex="-1"></a><span class="co">#          instead of an accurate formula &amp; general model which</span></span>
+<span id="cb28-26"><a href="google-capstone.html#cb28-26" aria-hidden="true" tabindex="-1"></a><span class="co">#          takes into account location, stops, turns, etc.</span></span>
+<span id="cb28-27"><a href="google-capstone.html#cb28-27" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(bike_data <span class="sc">%&gt;%</span></span>
+<span id="cb28-28"><a href="google-capstone.html#cb28-28" aria-hidden="true" tabindex="-1"></a>          <span class="fu">select</span>(trip_distance, trip_duration, speed) <span class="sc">%&gt;%</span></span>
+<span id="cb28-29"><a href="google-capstone.html#cb28-29" aria-hidden="true" tabindex="-1"></a>          <span class="fu">filter</span>(speed <span class="sc">&gt;=</span> <span class="dv">30</span> <span class="sc">|</span> trip_duration <span class="sc">&lt;=</span> <span class="dv">0</span>))</span></code></pre></div>
+<pre><code>## Rows: 721
+## Columns: 3
+## $ trip_distance &lt;dbl&gt; 0.000000000, 0.000000000, 0.000000000, 0.025981785, 0.00&#x2026;
+## $ trip_duration &lt;dbl&gt; -0.0100000000, 0.0000000000, 0.0000000000, 0.0005555556,&#x2026;
+## $ speed         &lt;dbl&gt; 0.0000000, NaN, NaN, 46.7672134, -0.0793921, NaN, NaN, 0&#x2026;</code></pre>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="google-capstone.html#cb30-1" aria-hidden="true" tabindex="-1"></a>bike_data <span class="ot">&lt;-</span> bike_data <span class="sc">%&gt;%</span></span>
+<span id="cb30-2"><a href="google-capstone.html#cb30-2" aria-hidden="true" tabindex="-1"></a>               <span class="fu">filter</span>(speed <span class="sc">&lt;</span> <span class="dv">30</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb30-3"><a href="google-capstone.html#cb30-3" aria-hidden="true" tabindex="-1"></a>               <span class="fu">filter</span>(trip_duration <span class="sc">&gt;</span> <span class="dv">0</span>)</span>
+<span id="cb30-4"><a href="google-capstone.html#cb30-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-5"><a href="google-capstone.html#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(bike_data)</span></code></pre></div>
+<pre><code>## Rows: 4,627,413
+## Columns: 23
+## $ ride_id            &lt;chr&gt; &quot;DD06751C6019D865&quot;, &quot;79973DC3B232048F&quot;, &quot;0249AD4B25&#x2026;
+## $ rideable_type      &lt;fct&gt; classic_bike, classic_bike, classic_bike, classic_b&#x2026;
+## $ started_at         &lt;dttm&gt; 2021-08-08 17:21:26, 2021-08-27 08:53:52, 2021-08-&#x2026;
+## $ ended_at           &lt;dttm&gt; 2021-08-08 17:25:37, 2021-08-27 09:18:29, 2021-08-&#x2026;
+## $ start_station_name &lt;chr&gt; &quot;Desplaines St &amp; Kinzie St&quot;, &quot;Larrabee St &amp; Armitag&#x2026;
+## $ start_station_id   &lt;chr&gt; &quot;TA1306000003&quot;, &quot;TA1309000006&quot;, &quot;13157&quot;, &quot;13042&quot;, &quot;&#x2026;
+## $ end_station_name   &lt;chr&gt; &quot;Kingsbury St &amp; Kinzie St&quot;, &quot;Michigan Ave &amp; Oak St&quot;&#x2026;
+## $ end_station_id     &lt;chr&gt; &quot;KA1503000043&quot;, &quot;13042&quot;, &quot;13157&quot;, &quot;13042&quot;, &quot;13042&quot;,&#x2026;
+## $ start_lat          &lt;dbl&gt; 41.88872, 41.91808, 41.87773, 41.90096, 41.90096, 4&#x2026;
+## $ start_lng          &lt;dbl&gt; -87.64445, -87.64375, -87.65479, -87.62378, -87.623&#x2026;
+## $ end_lat            &lt;dbl&gt; 41.88918, 41.90096, 41.87773, 41.90096, 41.90096, 4&#x2026;
+## $ end_lng            &lt;dbl&gt; -87.63851, -87.62378, -87.65479, -87.62378, -87.623&#x2026;
+## $ member_casual      &lt;fct&gt; Member, Member, Member, Casual, Casual, Casual, Cas&#x2026;
+## $ trip_duration      &lt;dbl&gt; 0.069722222, 0.410277778, 0.010277778, 0.078333333,&#x2026;
+## $ trip_distance      &lt;dbl&gt; 0.307632959, 1.568416347, 0.000000000, 0.000000000,&#x2026;
+## $ speed              &lt;dbl&gt; 4.412265551, 3.822815741, 0.000000000, 0.000000000,&#x2026;
+## $ trip_hour          &lt;int&gt; 17, 8, 12, 16, 15, 10, 23, 22, 18, 13, 21, 11, 18, &#x2026;
+## $ trip_day           &lt;ord&gt; Sun, Fri, Sun, Thu, Mon, Mon, Sat, Fri, Mon, Thu, W&#x2026;
+## $ trip_month         &lt;ord&gt; Aug, Aug, Aug, Aug, Aug, Aug, Aug, Aug, Aug, Aug, A&#x2026;
+## $ afternoon          &lt;lgl&gt; TRUE, FALSE, TRUE, TRUE, TRUE, FALSE, FALSE, FALSE,&#x2026;
+## $ weekend            &lt;lgl&gt; TRUE, TRUE, TRUE, FALSE, FALSE, FALSE, TRUE, TRUE, &#x2026;
+## $ season             &lt;fct&gt; Summer, Summer, Summer, Summer, Summer, Summer, Sum&#x2026;
+## $ route              &lt;chr&gt; &quot;Desplaines St &amp; Kinzie St to Kingsbury St &amp; Kinzie&#x2026;</code></pre>
+</div>
+</div>
+<div id="analyze" class="section level2 hasAnchor" number="3.4">
+<h2><span class="header-section-number">3.4</span> Analyze<a href="google-capstone.html#analyze" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The following is a &#x201C;slideshow&#x201D; of relevant statistics and visuals along with their code.</p>
+<p>To keep it clean, key observations are listed afterward (with cross-references) in the <a href="google-capstone.html#report">final report</a>. In normal reports or slideshows, the graphic wouldn&#x2019;t have the code attached to it &#x2013; just the caption and key observation(s).</p>
+<div id="basic-descriptive-statistics" class="section level3 hasAnchor" number="3.4.1">
+<h3><span class="header-section-number">3.4.1</span> Basic Descriptive Statistics<a href="google-capstone.html#basic-descriptive-statistics" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="google-capstone.html#cb32-1" aria-hidden="true" tabindex="-1"></a>bike_data <span class="sc">%&gt;%</span></span>
+<span id="cb32-2"><a href="google-capstone.html#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(start_lat<span class="sc">:</span>end_lng, member_casual<span class="sc">:</span>trip_hour) <span class="sc">%&gt;%</span></span>
+<span id="cb32-3"><a href="google-capstone.html#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(member_casual) <span class="sc">%&gt;%</span></span>
+<span id="cb32-4"><a href="google-capstone.html#cb32-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">descr</span>(<span class="at">show =</span> <span class="fu">c</span>(<span class="st">&quot;mean&quot;</span>, <span class="st">&quot;sd&quot;</span>, <span class="st">&quot;trimmed&quot;</span>, <span class="st">&quot;range&quot;</span>, <span class="st">&quot;iqr&quot;</span>, <span class="st">&quot;skew&quot;</span>))</span></code></pre></div>
+<pre><code>## 
+## ## Basic descriptive statistics
+## 
+## 
+## Grouped by: Casual
+## 
+##            var   mean   sd trimmed               range        iqr   skew
+##      start_lat  41.90 0.04   41.90  0.42 (41.65-42.06) 0.04451399  -0.36
+##      start_lng -87.64 0.03  -87.64 0.3 (-87.83--87.53) 0.02905797  -0.85
+##        end_lat  41.90 0.04   41.90  0.52 (41.65-42.17) 0.04566567  -0.37
+##        end_lng -87.64 0.03  -87.64 0.3 (-87.83--87.53) 0.03058697  -0.84
+##  trip_duration   0.44 1.77    0.31   693.82 (0-693.82) 0.31944444 161.70
+##  trip_distance   1.36 1.23    1.19     19.85 (0-19.85) 1.20339742   2.19
+##          speed   5.03 3.14    4.97     29.44 (0-29.44) 4.49007265   0.09
+##      trip_hour  14.57 5.05   14.95           23 (0-23) 6.00000000  -0.77
+## 
+## 
+## Grouped by: Member
+## 
+##            var   mean   sd trimmed               range        iqr  skew
+##      start_lat  41.90 0.04   41.90  0.42 (41.65-42.06) 0.04698683 -0.15
+##      start_lng -87.65 0.02  -87.64 0.3 (-87.83--87.53) 0.02757026 -0.51
+##        end_lat  41.90 0.04   41.90  0.42 (41.65-42.06) 0.04708300 -0.15
+##        end_lng -87.65 0.02  -87.64 0.3 (-87.83--87.53) 0.02757026 -0.52
+##  trip_duration   0.21 0.29    0.18     24.88 (0-24.88) 0.17111111 31.47
+##  trip_distance   1.27 1.11    1.09       17.1 (0-17.1) 1.11475723  2.05
+##          speed   6.71 2.76    6.81     29.98 (0-29.98) 3.09570863 -0.23
+##      trip_hour  13.94 4.92   14.13           23 (0-23) 8.00000000 -0.43</code></pre>
+</div>
+<div id="viz-trip-behavior" class="section level3 hasAnchor" number="3.4.2">
+<h3><span class="header-section-number">3.4.2</span> Viz: Trip Behavior<a href="google-capstone.html#viz-trip-behavior" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>I used the <strong>RColorBrewer</strong> package <span class="citation">(<a href="#ref-R-RColorBrewer" role="doc-biblioref">Neuwirth 2022</a>)</span> for palettes.</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="google-capstone.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pie chart: member vs. casual</span></span>
+<span id="cb34-2"><a href="google-capstone.html#cb34-2" aria-hidden="true" tabindex="-1"></a>bike_data <span class="sc">%&gt;%</span></span>
+<span id="cb34-3"><a href="google-capstone.html#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(member_casual) <span class="sc">%&gt;%</span></span>
+<span id="cb34-4"><a href="google-capstone.html#cb34-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(member_casual) <span class="sc">%&gt;%</span></span>
+<span id="cb34-5"><a href="google-capstone.html#cb34-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb34-6"><a href="google-capstone.html#cb34-6" aria-hidden="true" tabindex="-1"></a>  ungroup <span class="sc">%&gt;%</span></span>
+<span id="cb34-7"><a href="google-capstone.html#cb34-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">perc =</span> <span class="fu">percent</span>(n<span class="sc">/</span><span class="fu">sum</span>(n))) <span class="sc">%&gt;%</span></span>
+<span id="cb34-8"><a href="google-capstone.html#cb34-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="st">&quot;&quot;</span>, <span class="at">y =</span> n, <span class="at">fill =</span> member_casual)) <span class="sc">+</span></span>
+<span id="cb34-9"><a href="google-capstone.html#cb34-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">size =</span> <span class="fl">0.25</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">position =</span> <span class="st">&quot;fill&quot;</span>) <span class="sc">+</span></span>
+<span id="cb34-10"><a href="google-capstone.html#cb34-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">coord_polar</span>(<span class="at">theta =</span> <span class="st">&quot;y&quot;</span>) <span class="sc">+</span></span>
+<span id="cb34-11"><a href="google-capstone.html#cb34-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> perc), <span class="at">size =</span> <span class="dv">5</span>, <span class="at">position =</span> <span class="fu">position_fill</span>(<span class="at">vjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
+<span id="cb34-12"><a href="google-capstone.html#cb34-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_void</span>() <span class="sc">+</span></span>
+<span id="cb34-13"><a href="google-capstone.html#cb34-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Casual Riders vs. Annual Members&quot;</span>) <span class="sc">+</span></span>
+<span id="cb34-14"><a href="google-capstone.html#cb34-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.title =</span> <span class="fu">element_blank</span>(), <span class="at">legend.position =</span> <span class="st">&quot;bottom&quot;</span>,</span>
+<span id="cb34-15"><a href="google-capstone.html#cb34-15" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend.key.size =</span> <span class="fu">unit</span>(<span class="fl">0.65</span>, <span class="st">&quot;cm&quot;</span>), <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb34-16"><a href="google-capstone.html#cb34-16" aria-hidden="true" tabindex="-1"></a>          <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">size =</span> <span class="dv">22</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>))</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:behavior-1"></span>
+<img src="_main_files/figure-html/behavior-1-1.png" alt="Membership Status" width="672">
+<p class="caption">
+Figure 3.1: Membership Status
+</p>
+</div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="google-capstone.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Bar chart: member vs. casual, days of week</span></span>
+<span id="cb35-2"><a href="google-capstone.html#cb35-2" aria-hidden="true" tabindex="-1"></a>bike_data <span class="sc">%&gt;%</span></span>
+<span id="cb35-3"><a href="google-capstone.html#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(member_casual, trip_day) <span class="sc">%&gt;%</span></span>
+<span id="cb35-4"><a href="google-capstone.html#cb35-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(member_casual, trip_day) <span class="sc">%&gt;%</span></span>
+<span id="cb35-5"><a href="google-capstone.html#cb35-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(trip_day) <span class="sc">%&gt;%</span></span>
+<span id="cb35-6"><a href="google-capstone.html#cb35-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> trip_day, <span class="at">y =</span> n, <span class="at">fill =</span> member_casual)) <span class="sc">+</span></span>
+<span id="cb35-7"><a href="google-capstone.html#cb35-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb35-8"><a href="google-capstone.html#cb35-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_wrap</span>( <span class="sc">~</span>member_casual, <span class="at">ncol =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb35-9"><a href="google-capstone.html#cb35-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> comma) <span class="sc">+</span></span>
+<span id="cb35-10"><a href="google-capstone.html#cb35-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Trip Behavior: Days of the Week&quot;</span>,</span>
+<span id="cb35-11"><a href="google-capstone.html#cb35-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">&quot;</span><span class="sc">\n</span><span class="st">Trip Day&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Number of Rides</span><span class="sc">\n</span><span class="st">&quot;</span>) <span class="sc">+</span></span>
+<span id="cb35-12"><a href="google-capstone.html#cb35-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.title =</span> <span class="fu">element_blank</span>(), <span class="at">legend.key.size =</span> <span class="fu">unit</span>(<span class="fl">0.65</span>, <span class="st">&quot;cm&quot;</span>),</span>
+<span id="cb35-13"><a href="google-capstone.html#cb35-13" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb35-14"><a href="google-capstone.html#cb35-14" aria-hidden="true" tabindex="-1"></a>          <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">size =</span> <span class="dv">22</span>))</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:behavior-2"></span>
+<img src="_main_files/figure-html/behavior-2-1.png" alt="Casual vs. Member - Rides per Day" width="672">
+<p class="caption">
+Figure 3.2: Casual vs.&#xA0;Member - Rides per Day
+</p>
+</div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="google-capstone.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pie chart: weekend/weekday use</span></span>
+<span id="cb36-2"><a href="google-capstone.html#cb36-2" aria-hidden="true" tabindex="-1"></a>bike_data <span class="sc">%&gt;%</span></span>
+<span id="cb36-3"><a href="google-capstone.html#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(member_casual, weekend) <span class="sc">%&gt;%</span></span>
+<span id="cb36-4"><a href="google-capstone.html#cb36-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(member_casual) <span class="sc">%&gt;%</span></span>
+<span id="cb36-5"><a href="google-capstone.html#cb36-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(weekend) <span class="sc">%&gt;%</span></span>
+<span id="cb36-6"><a href="google-capstone.html#cb36-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">perc =</span> <span class="fu">percent</span>(n<span class="sc">/</span><span class="fu">sum</span>(n))) <span class="sc">%&gt;%</span></span>
+<span id="cb36-7"><a href="google-capstone.html#cb36-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="st">&quot;&quot;</span>, <span class="at">y =</span> n, <span class="at">fill =</span> weekend)) <span class="sc">+</span></span>
+<span id="cb36-8"><a href="google-capstone.html#cb36-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">size =</span> <span class="fl">0.25</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">position =</span> <span class="st">&quot;fill&quot;</span>) <span class="sc">+</span></span>
+<span id="cb36-9"><a href="google-capstone.html#cb36-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">coord_polar</span>(<span class="at">theta =</span> <span class="st">&quot;y&quot;</span>) <span class="sc">+</span></span>
+<span id="cb36-10"><a href="google-capstone.html#cb36-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_wrap</span>( <span class="sc">~</span> member_casual) <span class="sc">+</span></span>
+<span id="cb36-11"><a href="google-capstone.html#cb36-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> perc), <span class="at">position =</span> <span class="fu">position_fill</span>(<span class="at">vjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
+<span id="cb36-12"><a href="google-capstone.html#cb36-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_void</span>() <span class="sc">+</span></span>
+<span id="cb36-13"><a href="google-capstone.html#cb36-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#FBB4AE&quot;</span>,<span class="st">&quot;#7FC97F&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb36-14"><a href="google-capstone.html#cb36-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Weekend Use</span><span class="sc">\n</span><span class="st">&quot;</span>) <span class="sc">+</span></span>
+<span id="cb36-15"><a href="google-capstone.html#cb36-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.title =</span> <span class="fu">element_blank</span>(), <span class="at">legend.position =</span> <span class="st">&quot;bottom&quot;</span>,</span>
+<span id="cb36-16"><a href="google-capstone.html#cb36-16" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend.key.size =</span> <span class="fu">unit</span>(<span class="fl">0.65</span>, <span class="st">&quot;cm&quot;</span>), <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb36-17"><a href="google-capstone.html#cb36-17" aria-hidden="true" tabindex="-1"></a>          <span class="at">strip.text.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>),</span>
+<span id="cb36-18"><a href="google-capstone.html#cb36-18" aria-hidden="true" tabindex="-1"></a>          <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">size =</span> <span class="dv">22</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>))</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:behavior-3"></span>
+<img src="_main_files/figure-html/behavior-3-1.png" alt="Casual vs. Member - Weekend" width="672">
+<p class="caption">
+Figure 3.3: Casual vs.&#xA0;Member - Weekend
+</p>
+</div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="google-capstone.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Bar chart: member vs. casual, rides by month</span></span>
+<span id="cb37-2"><a href="google-capstone.html#cb37-2" aria-hidden="true" tabindex="-1"></a>bike_data <span class="sc">%&gt;%</span></span>
+<span id="cb37-3"><a href="google-capstone.html#cb37-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(member_casual, trip_month) <span class="sc">%&gt;%</span></span>
+<span id="cb37-4"><a href="google-capstone.html#cb37-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(member_casual, trip_month) <span class="sc">%&gt;%</span></span>
+<span id="cb37-5"><a href="google-capstone.html#cb37-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(trip_month) <span class="sc">%&gt;%</span></span>
+<span id="cb37-6"><a href="google-capstone.html#cb37-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> trip_month, <span class="at">y =</span> n, <span class="at">fill =</span> member_casual)) <span class="sc">+</span></span>
+<span id="cb37-7"><a href="google-capstone.html#cb37-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb37-8"><a href="google-capstone.html#cb37-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> comma) <span class="sc">+</span></span>
+<span id="cb37-9"><a href="google-capstone.html#cb37-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Trip Behavior: Months of the Year&quot;</span>,</span>
+<span id="cb37-10"><a href="google-capstone.html#cb37-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">&quot;</span><span class="sc">\n</span><span class="st">Trip Month&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Number of Rides</span><span class="sc">\n</span><span class="st">&quot;</span>) <span class="sc">+</span></span>
+<span id="cb37-11"><a href="google-capstone.html#cb37-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.title =</span> <span class="fu">element_blank</span>(), <span class="at">legend.key.size =</span> <span class="fu">unit</span>(<span class="fl">0.65</span>, <span class="st">&quot;cm&quot;</span>),</span>
+<span id="cb37-12"><a href="google-capstone.html#cb37-12" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb37-13"><a href="google-capstone.html#cb37-13" aria-hidden="true" tabindex="-1"></a>          <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">size =</span> <span class="dv">22</span>))</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:behavior-4"></span>
+<img src="_main_files/figure-html/behavior-4-1.png" alt="Casual vs. Member - Rides per Month" width="672">
+<p class="caption">
+Figure 3.4: Casual vs.&#xA0;Member - Rides per Month
+</p>
+</div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="google-capstone.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pie Chart: member vs. casual, summer use</span></span>
+<span id="cb38-2"><a href="google-capstone.html#cb38-2" aria-hidden="true" tabindex="-1"></a>bike_data <span class="sc">%&gt;%</span></span>
+<span id="cb38-3"><a href="google-capstone.html#cb38-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(member_casual, season) <span class="sc">%&gt;%</span></span>
+<span id="cb38-4"><a href="google-capstone.html#cb38-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(member_casual) <span class="sc">%&gt;%</span></span>
+<span id="cb38-5"><a href="google-capstone.html#cb38-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(<span class="at">summer =</span> season <span class="sc">==</span> <span class="st">&quot;Summer&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb38-6"><a href="google-capstone.html#cb38-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">perc =</span> <span class="fu">percent</span>(n<span class="sc">/</span><span class="fu">sum</span>(n))) <span class="sc">%&gt;%</span></span>
+<span id="cb38-7"><a href="google-capstone.html#cb38-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="st">&quot;&quot;</span>, <span class="at">y =</span> n, <span class="at">fill =</span> summer)) <span class="sc">+</span></span>
+<span id="cb38-8"><a href="google-capstone.html#cb38-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">size =</span> <span class="fl">0.25</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">position =</span> <span class="st">&quot;fill&quot;</span>) <span class="sc">+</span></span>
+<span id="cb38-9"><a href="google-capstone.html#cb38-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">coord_polar</span>(<span class="at">theta =</span> <span class="st">&quot;y&quot;</span>) <span class="sc">+</span></span>
+<span id="cb38-10"><a href="google-capstone.html#cb38-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_wrap</span>( <span class="sc">~</span> member_casual) <span class="sc">+</span></span>
+<span id="cb38-11"><a href="google-capstone.html#cb38-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> perc), <span class="at">position =</span> <span class="fu">position_fill</span>(<span class="at">vjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
+<span id="cb38-12"><a href="google-capstone.html#cb38-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_void</span>() <span class="sc">+</span></span>
+<span id="cb38-13"><a href="google-capstone.html#cb38-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#FBB4AE&quot;</span>,<span class="st">&quot;#7FC97F&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb38-14"><a href="google-capstone.html#cb38-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Summer Use</span><span class="sc">\n</span><span class="st">&quot;</span>) <span class="sc">+</span></span>
+<span id="cb38-15"><a href="google-capstone.html#cb38-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.title =</span> <span class="fu">element_blank</span>(), <span class="at">legend.position =</span> <span class="st">&quot;bottom&quot;</span>,</span>
+<span id="cb38-16"><a href="google-capstone.html#cb38-16" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend.key.size =</span> <span class="fu">unit</span>(<span class="fl">0.65</span>, <span class="st">&quot;cm&quot;</span>), <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb38-17"><a href="google-capstone.html#cb38-17" aria-hidden="true" tabindex="-1"></a>          <span class="at">strip.text.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>),</span>
+<span id="cb38-18"><a href="google-capstone.html#cb38-18" aria-hidden="true" tabindex="-1"></a>          <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">size =</span> <span class="dv">22</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>))</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:behavior-5"></span>
+<img src="_main_files/figure-html/behavior-5-1.png" alt="Casual vs. Member - Summer" width="672">
+<p class="caption">
+Figure 3.5: Casual vs.&#xA0;Member - Summer
+</p>
+</div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="google-capstone.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Bar chart: member vs. casual, rides by hour (total)</span></span>
+<span id="cb39-2"><a href="google-capstone.html#cb39-2" aria-hidden="true" tabindex="-1"></a>bike_data <span class="sc">%&gt;%</span></span>
+<span id="cb39-3"><a href="google-capstone.html#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(member_casual, trip_hour) <span class="sc">%&gt;%</span></span>
+<span id="cb39-4"><a href="google-capstone.html#cb39-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(member_casual) <span class="sc">%&gt;%</span></span>
+<span id="cb39-5"><a href="google-capstone.html#cb39-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(trip_hour) <span class="sc">%&gt;%</span></span>
+<span id="cb39-6"><a href="google-capstone.html#cb39-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> trip_hour, <span class="at">y =</span> n, <span class="at">fill =</span> member_casual)) <span class="sc">+</span></span>
+<span id="cb39-7"><a href="google-capstone.html#cb39-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb39-8"><a href="google-capstone.html#cb39-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> comma) <span class="sc">+</span></span>
+<span id="cb39-9"><a href="google-capstone.html#cb39-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">23</span>)) <span class="sc">+</span></span>
+<span id="cb39-10"><a href="google-capstone.html#cb39-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Trip Behavior: Rides by Hour&quot;</span>,</span>
+<span id="cb39-11"><a href="google-capstone.html#cb39-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">&quot;</span><span class="sc">\n</span><span class="st">Trip Hour&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Number of Rides</span><span class="sc">\n</span><span class="st">&quot;</span>) <span class="sc">+</span></span>
+<span id="cb39-12"><a href="google-capstone.html#cb39-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.title =</span> <span class="fu">element_blank</span>(), <span class="at">legend.key.size =</span> <span class="fu">unit</span>(<span class="fl">0.5</span>, <span class="st">&quot;cm&quot;</span>),</span>
+<span id="cb39-13"><a href="google-capstone.html#cb39-13" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>),</span>
+<span id="cb39-14"><a href="google-capstone.html#cb39-14" aria-hidden="true" tabindex="-1"></a>          <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">size =</span> <span class="dv">22</span>))</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:behavior-6"></span>
+<img src="_main_files/figure-html/behavior-6-1.png" alt="Casual vs. Member - Rides per Hour" width="672">
+<p class="caption">
+Figure 3.6: Casual vs.&#xA0;Member - Rides per Hour
+</p>
+</div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="google-capstone.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pie chart: member vs casual, afternoon use (12-6 pm)</span></span>
+<span id="cb40-2"><a href="google-capstone.html#cb40-2" aria-hidden="true" tabindex="-1"></a>bike_data <span class="sc">%&gt;%</span></span>
+<span id="cb40-3"><a href="google-capstone.html#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(member_casual, afternoon) <span class="sc">%&gt;%</span></span>
+<span id="cb40-4"><a href="google-capstone.html#cb40-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(member_casual) <span class="sc">%&gt;%</span></span>
+<span id="cb40-5"><a href="google-capstone.html#cb40-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(afternoon) <span class="sc">%&gt;%</span></span>
+<span id="cb40-6"><a href="google-capstone.html#cb40-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">perc =</span> <span class="fu">percent</span>(n<span class="sc">/</span><span class="fu">sum</span>(n))) <span class="sc">%&gt;%</span></span>
+<span id="cb40-7"><a href="google-capstone.html#cb40-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="st">&quot;&quot;</span>, <span class="at">y =</span> n, <span class="at">fill =</span> afternoon)) <span class="sc">+</span></span>
+<span id="cb40-8"><a href="google-capstone.html#cb40-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">size =</span> <span class="fl">0.25</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">position =</span> <span class="st">&quot;fill&quot;</span>) <span class="sc">+</span></span>
+<span id="cb40-9"><a href="google-capstone.html#cb40-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">coord_polar</span>(<span class="at">theta =</span> <span class="st">&quot;y&quot;</span>) <span class="sc">+</span></span>
+<span id="cb40-10"><a href="google-capstone.html#cb40-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_wrap</span>( <span class="sc">~</span> member_casual) <span class="sc">+</span></span>
+<span id="cb40-11"><a href="google-capstone.html#cb40-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> perc), <span class="at">position =</span> <span class="fu">position_fill</span>(<span class="at">vjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
+<span id="cb40-12"><a href="google-capstone.html#cb40-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_void</span>() <span class="sc">+</span></span>
+<span id="cb40-13"><a href="google-capstone.html#cb40-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#FBB4AE&quot;</span>,<span class="st">&quot;#7FC97F&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb40-14"><a href="google-capstone.html#cb40-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Afternoon Use</span><span class="sc">\n</span><span class="st">&quot;</span>) <span class="sc">+</span></span>
+<span id="cb40-15"><a href="google-capstone.html#cb40-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.title =</span> <span class="fu">element_blank</span>(), <span class="at">legend.position =</span> <span class="st">&quot;bottom&quot;</span>,</span>
+<span id="cb40-16"><a href="google-capstone.html#cb40-16" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend.key.size =</span> <span class="fu">unit</span>(<span class="fl">0.65</span>, <span class="st">&quot;cm&quot;</span>), <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb40-17"><a href="google-capstone.html#cb40-17" aria-hidden="true" tabindex="-1"></a>          <span class="at">strip.text.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>),</span>
+<span id="cb40-18"><a href="google-capstone.html#cb40-18" aria-hidden="true" tabindex="-1"></a>          <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">size =</span> <span class="dv">22</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>))</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:behavior-7"></span>
+<img src="_main_files/figure-html/behavior-7-1.png" alt="Casual vs. Member - Afternoon" width="672">
+<p class="caption">
+Figure 3.7: Casual vs.&#xA0;Member - Afternoon
+</p>
+</div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="google-capstone.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Bar chart: member vs casual, rides by hour (by day)</span></span>
+<span id="cb41-2"><a href="google-capstone.html#cb41-2" aria-hidden="true" tabindex="-1"></a>bike_data <span class="sc">%&gt;%</span></span>
+<span id="cb41-3"><a href="google-capstone.html#cb41-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(member_casual, trip_day, trip_hour) <span class="sc">%&gt;%</span></span>
+<span id="cb41-4"><a href="google-capstone.html#cb41-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(member_casual, trip_day) <span class="sc">%&gt;%</span></span>
+<span id="cb41-5"><a href="google-capstone.html#cb41-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(trip_hour) <span class="sc">%&gt;%</span></span>
+<span id="cb41-6"><a href="google-capstone.html#cb41-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> trip_hour, <span class="at">y =</span> n, <span class="at">fill =</span> member_casual)) <span class="sc">+</span></span>
+<span id="cb41-7"><a href="google-capstone.html#cb41-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb41-8"><a href="google-capstone.html#cb41-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> comma) <span class="sc">+</span></span>
+<span id="cb41-9"><a href="google-capstone.html#cb41-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_wrap</span>(<span class="sc">~</span> trip_day) <span class="sc">+</span></span>
+<span id="cb41-10"><a href="google-capstone.html#cb41-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Trip Behavior: Rides by Hour&quot;</span>, <span class="at">subtitle =</span> <span class="st">&quot;Days of the Week&quot;</span>,</span>
+<span id="cb41-11"><a href="google-capstone.html#cb41-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">&quot;Trip Hour&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Number of Rides</span><span class="sc">\n</span><span class="st">&quot;</span>) <span class="sc">+</span></span>
+<span id="cb41-12"><a href="google-capstone.html#cb41-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.title =</span> <span class="fu">element_blank</span>(), <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb41-13"><a href="google-capstone.html#cb41-13" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend.key.size =</span> <span class="fu">unit</span>(<span class="fl">0.5</span>, <span class="st">&quot;cm&quot;</span>), <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>),</span>
+<span id="cb41-14"><a href="google-capstone.html#cb41-14" aria-hidden="true" tabindex="-1"></a>          <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">size =</span> <span class="dv">22</span>))</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:behavior-8"></span>
+<img src="_main_files/figure-html/behavior-8-1.png" alt="Casual vs. Member - Rides per Hour Each Day" width="672">
+<p class="caption">
+Figure 3.8: Casual vs.&#xA0;Member - Rides per Hour Each Day
+</p>
+</div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="google-capstone.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Bar chart: member vs casual, rides by hour (by month)</span></span>
+<span id="cb42-2"><a href="google-capstone.html#cb42-2" aria-hidden="true" tabindex="-1"></a>bike_data <span class="sc">%&gt;%</span></span>
+<span id="cb42-3"><a href="google-capstone.html#cb42-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(member_casual, trip_month, trip_hour) <span class="sc">%&gt;%</span></span>
+<span id="cb42-4"><a href="google-capstone.html#cb42-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(member_casual, trip_month) <span class="sc">%&gt;%</span></span>
+<span id="cb42-5"><a href="google-capstone.html#cb42-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(trip_hour) <span class="sc">%&gt;%</span></span>
+<span id="cb42-6"><a href="google-capstone.html#cb42-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> trip_hour, <span class="at">y =</span> n, <span class="at">fill =</span> member_casual)) <span class="sc">+</span></span>
+<span id="cb42-7"><a href="google-capstone.html#cb42-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb42-8"><a href="google-capstone.html#cb42-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> comma) <span class="sc">+</span></span>
+<span id="cb42-9"><a href="google-capstone.html#cb42-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_wrap</span>(<span class="sc">~</span> trip_month) <span class="sc">+</span></span>
+<span id="cb42-10"><a href="google-capstone.html#cb42-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Trip Behavior: Rides by Hour&quot;</span>, <span class="at">subtitle =</span> <span class="st">&quot;Months of the Year&quot;</span>,</span>
+<span id="cb42-11"><a href="google-capstone.html#cb42-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">&quot;</span><span class="sc">\n</span><span class="st">Trip Hour&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Number of Rides</span><span class="sc">\n</span><span class="st">&quot;</span>) <span class="sc">+</span></span>
+<span id="cb42-12"><a href="google-capstone.html#cb42-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.title =</span> <span class="fu">element_blank</span>(), <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb42-13"><a href="google-capstone.html#cb42-13" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend.key.size =</span> <span class="fu">unit</span>(<span class="fl">0.5</span>, <span class="st">&quot;cm&quot;</span>), <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>),</span>
+<span id="cb42-14"><a href="google-capstone.html#cb42-14" aria-hidden="true" tabindex="-1"></a>          <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">size =</span> <span class="dv">22</span>))</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:behavior-9"></span>
+<img src="_main_files/figure-html/behavior-9-1.png" alt="Casual vs. Member - Rides per Hour Each Month" width="672">
+<p class="caption">
+Figure 3.9: Casual vs.&#xA0;Member - Rides per Hour Each Month
+</p>
+</div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="google-capstone.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pie chart by season</span></span>
+<span id="cb43-2"><a href="google-capstone.html#cb43-2" aria-hidden="true" tabindex="-1"></a>bike_data <span class="sc">%&gt;%</span></span>
+<span id="cb43-3"><a href="google-capstone.html#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(member_casual, season) <span class="sc">%&gt;%</span></span>
+<span id="cb43-4"><a href="google-capstone.html#cb43-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(member_casual) <span class="sc">%&gt;%</span></span>
+<span id="cb43-5"><a href="google-capstone.html#cb43-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(season) <span class="sc">%&gt;%</span></span>
+<span id="cb43-6"><a href="google-capstone.html#cb43-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">perc =</span> <span class="fu">percent</span>(n<span class="sc">/</span><span class="fu">sum</span>(n))) <span class="sc">%&gt;%</span></span>
+<span id="cb43-7"><a href="google-capstone.html#cb43-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="st">&quot;&quot;</span>, <span class="at">y =</span> n, <span class="at">fill =</span> season)) <span class="sc">+</span></span>
+<span id="cb43-8"><a href="google-capstone.html#cb43-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">size =</span> <span class="fl">0.25</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">position =</span> <span class="st">&quot;fill&quot;</span>) <span class="sc">+</span></span>
+<span id="cb43-9"><a href="google-capstone.html#cb43-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">coord_polar</span>(<span class="at">theta =</span> <span class="st">&quot;y&quot;</span>) <span class="sc">+</span></span>
+<span id="cb43-10"><a href="google-capstone.html#cb43-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_wrap</span>( <span class="sc">~</span> member_casual) <span class="sc">+</span></span>
+<span id="cb43-11"><a href="google-capstone.html#cb43-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fl">1.675</span>, <span class="at">label =</span> perc), <span class="at">position =</span> <span class="fu">position_fill</span>(<span class="at">vjust=</span><span class="fl">0.5</span>),</span>
+<span id="cb43-12"><a href="google-capstone.html#cb43-12" aria-hidden="true" tabindex="-1"></a>              <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb43-13"><a href="google-capstone.html#cb43-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_void</span>() <span class="sc">+</span></span>
+<span id="cb43-14"><a href="google-capstone.html#cb43-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#C7E9B4&quot;</span>, <span class="st">&quot;#7FCDBB&quot;</span>, <span class="st">&quot;#41B6C4&quot;</span>, <span class="st">&quot;#1D91C0&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb43-15"><a href="google-capstone.html#cb43-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Seasonal Use</span><span class="sc">\n</span><span class="st">&quot;</span>) <span class="sc">+</span></span>
+<span id="cb43-16"><a href="google-capstone.html#cb43-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.title =</span> <span class="fu">element_blank</span>(), <span class="at">legend.position =</span> <span class="st">&quot;bottom&quot;</span>,</span>
+<span id="cb43-17"><a href="google-capstone.html#cb43-17" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend.key.size =</span> <span class="fu">unit</span>(<span class="fl">0.65</span>, <span class="st">&quot;cm&quot;</span>), <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb43-18"><a href="google-capstone.html#cb43-18" aria-hidden="true" tabindex="-1"></a>          <span class="at">strip.text.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>),</span>
+<span id="cb43-19"><a href="google-capstone.html#cb43-19" aria-hidden="true" tabindex="-1"></a>          <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">size =</span> <span class="dv">22</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>))</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:behavior-10"></span>
+<img src="_main_files/figure-html/behavior-10-1.png" alt="Casual vs. Member - Seasons" width="672">
+<p class="caption">
+Figure 3.10: Casual vs.&#xA0;Member - Seasons
+</p>
+</div>
+</div>
+<div id="viz-bike-choice" class="section level3 hasAnchor" number="3.4.3">
+<h3><span class="header-section-number">3.4.3</span> Viz: Bike Choice<a href="google-capstone.html#viz-bike-choice" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="google-capstone.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pie chart: types of bikes</span></span>
+<span id="cb44-2"><a href="google-capstone.html#cb44-2" aria-hidden="true" tabindex="-1"></a>bike_data <span class="sc">%&gt;%</span></span>
+<span id="cb44-3"><a href="google-capstone.html#cb44-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(rideable_type) <span class="sc">%&gt;%</span></span>
+<span id="cb44-4"><a href="google-capstone.html#cb44-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(rideable_type) <span class="sc">%&gt;%</span></span>
+<span id="cb44-5"><a href="google-capstone.html#cb44-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">perc =</span> <span class="fu">percent</span>(n<span class="sc">/</span><span class="fu">sum</span>(n))) <span class="sc">%&gt;%</span></span>
+<span id="cb44-6"><a href="google-capstone.html#cb44-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="st">&quot;&quot;</span>, <span class="at">y =</span> n, <span class="at">fill =</span> rideable_type)) <span class="sc">+</span></span>
+<span id="cb44-7"><a href="google-capstone.html#cb44-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">size =</span> <span class="fl">0.25</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">position =</span> <span class="st">&quot;fill&quot;</span>) <span class="sc">+</span></span>
+<span id="cb44-8"><a href="google-capstone.html#cb44-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">coord_polar</span>(<span class="at">theta =</span> <span class="st">&quot;y&quot;</span>, <span class="at">direction =</span> <span class="sc">-</span><span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb44-9"><a href="google-capstone.html#cb44-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fl">1.1</span>, <span class="at">label =</span> perc), <span class="at">position =</span> <span class="fu">position_fill</span>(<span class="at">vjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb44-10"><a href="google-capstone.html#cb44-10" aria-hidden="true" tabindex="-1"></a>              <span class="at">size =</span> <span class="fl">3.5</span>) <span class="sc">+</span></span>
+<span id="cb44-11"><a href="google-capstone.html#cb44-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_void</span>() <span class="sc">+</span></span>
+<span id="cb44-12"><a href="google-capstone.html#cb44-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_manual</span>(<span class="at">name =</span> <span class="st">&quot;&quot;</span>, <span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#E5C494&quot;</span>, <span class="st">&quot;#B3B3B3&quot;</span>, <span class="st">&quot;#FFD92F&quot;</span>),</span>
+<span id="cb44-13"><a href="google-capstone.html#cb44-13" aria-hidden="true" tabindex="-1"></a>                      <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Classic&quot;</span>, <span class="st">&quot;Docked&quot;</span>, <span class="st">&quot;Electric&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb44-14"><a href="google-capstone.html#cb44-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Bike Choice (Overall)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb44-15"><a href="google-capstone.html#cb44-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.title =</span> <span class="fu">element_blank</span>(), <span class="at">legend.key.size =</span> <span class="fu">unit</span>(<span class="fl">0.65</span>, <span class="st">&quot;cm&quot;</span>),</span>
+<span id="cb44-16"><a href="google-capstone.html#cb44-16" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>), <span class="at">legend.position =</span> <span class="st">&quot;bottom&quot;</span>,</span>
+<span id="cb44-17"><a href="google-capstone.html#cb44-17" aria-hidden="true" tabindex="-1"></a>          <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">size =</span> <span class="dv">22</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
+<span id="cb44-18"><a href="google-capstone.html#cb44-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">guides</span>(<span class="at">fill =</span> <span class="fu">guide_legend</span>(<span class="at">reverse =</span> <span class="cn">TRUE</span>, <span class="at">title.position =</span> <span class="st">&quot;top&quot;</span>))</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:choice-1"></span>
+<img src="_main_files/figure-html/choice-1-1.png" alt="Total Bike Choice" width="672">
+<p class="caption">
+Figure 3.11: Total Bike Choice
+</p>
+</div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="google-capstone.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Bar chart: member vs. casual, bike choice</span></span>
+<span id="cb45-2"><a href="google-capstone.html#cb45-2" aria-hidden="true" tabindex="-1"></a>bike_data <span class="sc">%&gt;%</span></span>
+<span id="cb45-3"><a href="google-capstone.html#cb45-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(rideable_type, member_casual) <span class="sc">%&gt;%</span></span>
+<span id="cb45-4"><a href="google-capstone.html#cb45-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(rideable_type, member_casual) <span class="sc">%&gt;%</span></span>
+<span id="cb45-5"><a href="google-capstone.html#cb45-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(rideable_type) <span class="sc">%&gt;%</span></span>
+<span id="cb45-6"><a href="google-capstone.html#cb45-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> member_casual, <span class="at">y =</span> n, <span class="at">fill =</span> rideable_type)) <span class="sc">+</span></span>
+<span id="cb45-7"><a href="google-capstone.html#cb45-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb45-8"><a href="google-capstone.html#cb45-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">comma</span>(n)),</span>
+<span id="cb45-9"><a href="google-capstone.html#cb45-9" aria-hidden="true" tabindex="-1"></a>              <span class="at">position =</span> <span class="fu">position_stack</span>(<span class="at">vjust =</span><span class="fl">0.5</span>), <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb45-10"><a href="google-capstone.html#cb45-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> comma) <span class="sc">+</span></span>
+<span id="cb45-11"><a href="google-capstone.html#cb45-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#E5C494&quot;</span>, <span class="st">&quot;#B3B3B3&quot;</span>, <span class="st">&quot;#FFD92F&quot;</span>), <span class="at">name =</span> <span class="st">&quot;Bike Type&quot;</span>,</span>
+<span id="cb45-12"><a href="google-capstone.html#cb45-12" aria-hidden="true" tabindex="-1"></a>                      <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Classic&quot;</span>, <span class="st">&quot;Docked&quot;</span>, <span class="st">&quot;Electric&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb45-13"><a href="google-capstone.html#cb45-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Bike Choice: Casuals vs. Members&quot;</span>, <span class="at">x =</span> <span class="st">&quot;&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Number of Rides</span><span class="sc">\n</span><span class="st">&quot;</span>) <span class="sc">+</span></span>
+<span id="cb45-14"><a href="google-capstone.html#cb45-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.title =</span> <span class="fu">element_blank</span>(), <span class="at">legend.key.size =</span> <span class="fu">unit</span>(<span class="fl">0.65</span>, <span class="st">&quot;cm&quot;</span>),</span>
+<span id="cb45-15"><a href="google-capstone.html#cb45-15" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>), <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>),</span>
+<span id="cb45-16"><a href="google-capstone.html#cb45-16" aria-hidden="true" tabindex="-1"></a>          <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">size =</span> <span class="dv">22</span>))</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:choice-2"></span>
+<img src="_main_files/figure-html/choice-2-1.png" alt="Casual vs. Member - Choice" width="672">
+<p class="caption">
+Figure 3.12: Casual vs.&#xA0;Member - Choice
+</p>
+</div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="google-capstone.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pie chart: types of bikes</span></span>
+<span id="cb46-2"><a href="google-capstone.html#cb46-2" aria-hidden="true" tabindex="-1"></a>bike_data <span class="sc">%&gt;%</span></span>
+<span id="cb46-3"><a href="google-capstone.html#cb46-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(rideable_type, member_casual) <span class="sc">%&gt;%</span></span>
+<span id="cb46-4"><a href="google-capstone.html#cb46-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(member_casual) <span class="sc">%&gt;%</span></span>
+<span id="cb46-5"><a href="google-capstone.html#cb46-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(rideable_type) <span class="sc">%&gt;%</span></span>
+<span id="cb46-6"><a href="google-capstone.html#cb46-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">perc =</span> <span class="fu">percent</span>(n<span class="sc">/</span><span class="fu">sum</span>(n))) <span class="sc">%&gt;%</span></span>
+<span id="cb46-7"><a href="google-capstone.html#cb46-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="st">&quot;&quot;</span>, <span class="at">y =</span> n, <span class="at">fill =</span> rideable_type)) <span class="sc">+</span></span>
+<span id="cb46-8"><a href="google-capstone.html#cb46-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">size =</span> <span class="fl">0.25</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">position =</span> <span class="st">&quot;fill&quot;</span>) <span class="sc">+</span></span>
+<span id="cb46-9"><a href="google-capstone.html#cb46-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">coord_polar</span>(<span class="at">theta =</span> <span class="st">&quot;y&quot;</span>, <span class="at">direction =</span> <span class="sc">-</span><span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb46-10"><a href="google-capstone.html#cb46-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_wrap</span>( <span class="sc">~</span> member_casual) <span class="sc">+</span></span>
+<span id="cb46-11"><a href="google-capstone.html#cb46-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fl">1.05</span>, <span class="at">label =</span> perc), <span class="at">position =</span> <span class="fu">position_fill</span>(<span class="at">vjust=</span><span class="fl">0.5</span>)) <span class="sc">+</span></span>
+<span id="cb46-12"><a href="google-capstone.html#cb46-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_void</span>() <span class="sc">+</span></span>
+<span id="cb46-13"><a href="google-capstone.html#cb46-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_manual</span>(<span class="at">name =</span> <span class="st">&quot;&quot;</span>, <span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#E5C494&quot;</span>, <span class="st">&quot;#B3B3B3&quot;</span>, <span class="st">&quot;#FFD92F&quot;</span>),</span>
+<span id="cb46-14"><a href="google-capstone.html#cb46-14" aria-hidden="true" tabindex="-1"></a>                      <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Classic&quot;</span>, <span class="st">&quot;Docked&quot;</span>, <span class="st">&quot;Electric&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb46-15"><a href="google-capstone.html#cb46-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Bike Choice</span><span class="sc">\n</span><span class="st">&quot;</span>) <span class="sc">+</span></span>
+<span id="cb46-16"><a href="google-capstone.html#cb46-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.title =</span> <span class="fu">element_blank</span>(), <span class="at">legend.key.size =</span> <span class="fu">unit</span>(<span class="fl">0.65</span>, <span class="st">&quot;cm&quot;</span>),</span>
+<span id="cb46-17"><a href="google-capstone.html#cb46-17" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>), <span class="at">legend.position =</span> <span class="st">&quot;bottom&quot;</span>,</span>
+<span id="cb46-18"><a href="google-capstone.html#cb46-18" aria-hidden="true" tabindex="-1"></a>          <span class="at">strip.text.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>),</span>
+<span id="cb46-19"><a href="google-capstone.html#cb46-19" aria-hidden="true" tabindex="-1"></a>          <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">size =</span> <span class="dv">22</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
+<span id="cb46-20"><a href="google-capstone.html#cb46-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">guides</span>(<span class="at">fill =</span> <span class="fu">guide_legend</span>(<span class="at">reverse =</span> <span class="cn">TRUE</span>, <span class="at">title.position =</span> <span class="st">&quot;top&quot;</span>))</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:choice-3"></span>
+<img src="_main_files/figure-html/choice-3-1.png" alt="(Pie) Casual vs. Member - Choice" width="672">
+<p class="caption">
+Figure 3.13: (Pie) Casual vs.&#xA0;Member - Choice
+</p>
+</div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="google-capstone.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Bar Chart: rideable_type / day</span></span>
+<span id="cb47-2"><a href="google-capstone.html#cb47-2" aria-hidden="true" tabindex="-1"></a>bike_data <span class="sc">%&gt;%</span></span>
+<span id="cb47-3"><a href="google-capstone.html#cb47-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(trip_day, rideable_type, member_casual) <span class="sc">%&gt;%</span></span>
+<span id="cb47-4"><a href="google-capstone.html#cb47-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(trip_day, rideable_type, member_casual) <span class="sc">%&gt;%</span></span>
+<span id="cb47-5"><a href="google-capstone.html#cb47-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(rideable_type) <span class="sc">%&gt;%</span></span>
+<span id="cb47-6"><a href="google-capstone.html#cb47-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> member_casual, <span class="at">y =</span> n, <span class="at">fill =</span> rideable_type)) <span class="sc">+</span></span>
+<span id="cb47-7"><a href="google-capstone.html#cb47-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb47-8"><a href="google-capstone.html#cb47-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_wrap</span>(<span class="sc">~</span> trip_day) <span class="sc">+</span></span>
+<span id="cb47-9"><a href="google-capstone.html#cb47-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> comma) <span class="sc">+</span></span>
+<span id="cb47-10"><a href="google-capstone.html#cb47-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#E5C494&quot;</span>, <span class="st">&quot;#B3B3B3&quot;</span>, <span class="st">&quot;#FFD92F&quot;</span>),</span>
+<span id="cb47-11"><a href="google-capstone.html#cb47-11" aria-hidden="true" tabindex="-1"></a>                      <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Classic&quot;</span>, <span class="st">&quot;Docked&quot;</span>, <span class="st">&quot;Electric&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb47-12"><a href="google-capstone.html#cb47-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Bike Choice: Casuals vs. Members&quot;</span>, <span class="at">subtitle =</span> <span class="st">&quot;Days of the Week&quot;</span>,</span>
+<span id="cb47-13"><a href="google-capstone.html#cb47-13" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">&quot;&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Number of Rides</span><span class="sc">\n</span><span class="st">&quot;</span>) <span class="sc">+</span></span>
+<span id="cb47-14"><a href="google-capstone.html#cb47-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.title =</span> <span class="fu">element_blank</span>(), <span class="at">legend.key.size =</span> <span class="fu">unit</span>(<span class="fl">0.5</span>, <span class="st">&quot;cm&quot;</span>),</span>
+<span id="cb47-15"><a href="google-capstone.html#cb47-15" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>),</span>
+<span id="cb47-16"><a href="google-capstone.html#cb47-16" aria-hidden="true" tabindex="-1"></a>          <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">size =</span> <span class="dv">22</span>))</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:choice-4"></span>
+<img src="_main_files/figure-html/choice-4-1.png" alt="Casual vs. Member - Choice per Day" width="672">
+<p class="caption">
+Figure 3.14: Casual vs.&#xA0;Member - Choice per Day
+</p>
+</div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="google-capstone.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Bar chart: bike type choice member vs. casual, by month</span></span>
+<span id="cb48-2"><a href="google-capstone.html#cb48-2" aria-hidden="true" tabindex="-1"></a>bike_data <span class="sc">%&gt;%</span></span>
+<span id="cb48-3"><a href="google-capstone.html#cb48-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(trip_month, rideable_type, member_casual) <span class="sc">%&gt;%</span></span>
+<span id="cb48-4"><a href="google-capstone.html#cb48-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(trip_month, rideable_type, member_casual) <span class="sc">%&gt;%</span></span>
+<span id="cb48-5"><a href="google-capstone.html#cb48-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(rideable_type) <span class="sc">%&gt;%</span></span>
+<span id="cb48-6"><a href="google-capstone.html#cb48-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> member_casual, <span class="at">y =</span> n, <span class="at">fill =</span> rideable_type)) <span class="sc">+</span></span>
+<span id="cb48-7"><a href="google-capstone.html#cb48-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb48-8"><a href="google-capstone.html#cb48-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_wrap</span>(<span class="sc">~</span> trip_month) <span class="sc">+</span></span>
+<span id="cb48-9"><a href="google-capstone.html#cb48-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> comma) <span class="sc">+</span></span>
+<span id="cb48-10"><a href="google-capstone.html#cb48-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#E5C494&quot;</span>, <span class="st">&quot;#B3B3B3&quot;</span>, <span class="st">&quot;#FFD92F&quot;</span>),</span>
+<span id="cb48-11"><a href="google-capstone.html#cb48-11" aria-hidden="true" tabindex="-1"></a>                      <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Classic&quot;</span>, <span class="st">&quot;Docked&quot;</span>, <span class="st">&quot;Electric&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb48-12"><a href="google-capstone.html#cb48-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Bike Choice: Casuals vs. Members&quot;</span>, <span class="at">subtitle =</span> <span class="st">&quot;Months of the Year&quot;</span>,</span>
+<span id="cb48-13"><a href="google-capstone.html#cb48-13" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">&quot;&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Number of Rides</span><span class="sc">\n</span><span class="st">&quot;</span>) <span class="sc">+</span></span>
+<span id="cb48-14"><a href="google-capstone.html#cb48-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.title =</span> <span class="fu">element_blank</span>(), <span class="at">legend.key.size =</span> <span class="fu">unit</span>(<span class="fl">0.5</span>, <span class="st">&quot;cm&quot;</span>),</span>
+<span id="cb48-15"><a href="google-capstone.html#cb48-15" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>),</span>
+<span id="cb48-16"><a href="google-capstone.html#cb48-16" aria-hidden="true" tabindex="-1"></a>          <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">22</span>))</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:choice-6"></span>
+<img src="_main_files/figure-html/choice-6-1.png" alt="Casual vs. Member - Choice per Month" width="672">
+<p class="caption">
+Figure 3.15: Casual vs.&#xA0;Member - Choice per Month
+</p>
+</div>
+</div>
+<div id="viz-popular-routes" class="section level3 hasAnchor" number="3.4.4">
+<h3><span class="header-section-number">3.4.4</span> Viz: Popular Routes<a href="google-capstone.html#viz-popular-routes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="google-capstone.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Top 10 routes member vs. casual</span></span>
+<span id="cb49-2"><a href="google-capstone.html#cb49-2" aria-hidden="true" tabindex="-1"></a>popular_routes <span class="ot">&lt;-</span> bike_data <span class="sc">%&gt;%</span></span>
+<span id="cb49-3"><a href="google-capstone.html#cb49-3" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">select</span>(route, member_casual) <span class="sc">%&gt;%</span></span>
+<span id="cb49-4"><a href="google-capstone.html#cb49-4" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">group_by</span>(route, member_casual) <span class="sc">%&gt;%</span></span>
+<span id="cb49-5"><a href="google-capstone.html#cb49-5" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">count</span>(route) <span class="sc">%&gt;%</span></span>
+<span id="cb49-6"><a href="google-capstone.html#cb49-6" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">arrange</span>(member_casual, <span class="fu">desc</span>(n)) <span class="sc">%&gt;%</span></span>
+<span id="cb49-7"><a href="google-capstone.html#cb49-7" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">group_by</span>(member_casual) <span class="sc">%&gt;%</span></span>
+<span id="cb49-8"><a href="google-capstone.html#cb49-8" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="google-capstone.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Bar Chart: Top 10 routes casual</span></span>
+<span id="cb50-2"><a href="google-capstone.html#cb50-2" aria-hidden="true" tabindex="-1"></a>popular_routes <span class="sc">%&gt;%</span></span>
+<span id="cb50-3"><a href="google-capstone.html#cb50-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(member_casual <span class="sc">==</span> <span class="st">&quot;Casual&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb50-4"><a href="google-capstone.html#cb50-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">order =</span> <span class="fu">rank</span>(route)) <span class="sc">%&gt;%</span></span>
+<span id="cb50-5"><a href="google-capstone.html#cb50-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(route, n), <span class="at">y =</span> n)) <span class="sc">+</span></span>
+<span id="cb50-6"><a href="google-capstone.html#cb50-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">fill =</span> <span class="fu">reorder</span>(route, <span class="sc">-</span>n)), <span class="at">position =</span> <span class="st">&quot;dodge&quot;</span>) <span class="sc">+</span></span>
+<span id="cb50-7"><a href="google-capstone.html#cb50-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> comma) <span class="sc">+</span></span>
+<span id="cb50-8"><a href="google-capstone.html#cb50-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="dv">1200</span>, <span class="at">label =</span> n), <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb50-9"><a href="google-capstone.html#cb50-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Top 10 Popular Routes for Casual Riders</span><span class="sc">\n</span><span class="st">&quot;</span>,</span>
+<span id="cb50-10"><a href="google-capstone.html#cb50-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">&quot;&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Number of Rides&quot;</span>) <span class="sc">+</span></span>
+<span id="cb50-11"><a href="google-capstone.html#cb50-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_blank</span>(), <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>),</span>
+<span id="cb50-12"><a href="google-capstone.html#cb50-12" aria-hidden="true" tabindex="-1"></a>          <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">22</span>, <span class="at">hjust =</span> <span class="fl">1.2</span>),</span>
+<span id="cb50-13"><a href="google-capstone.html#cb50-13" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend.direction =</span> <span class="st">&quot;vertical&quot;</span>, <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>),</span>
+<span id="cb50-14"><a href="google-capstone.html#cb50-14" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend.key.size =</span> <span class="fu">unit</span>(<span class="fl">0.5</span>, <span class="st">&quot;cm&quot;</span>), <span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">+</span></span>
+<span id="cb50-15"><a href="google-capstone.html#cb50-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb50-16"><a href="google-capstone.html#cb50-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_manual</span>(<span class="at">name =</span> <span class="st">&quot;Route Name&quot;</span>,</span>
+<span id="cb50-17"><a href="google-capstone.html#cb50-17" aria-hidden="true" tabindex="-1"></a>                      <span class="at">values =</span> <span class="fu">colorRampPalette</span>(<span class="fu">brewer.pal</span>(<span class="dv">8</span>,<span class="st">&quot;Set2&quot;</span>))(<span class="dv">10</span>))</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:pop-1"></span>
+<img src="_main_files/figure-html/pop-1-1.png" alt="\s" width="672">
+<p class="caption">
+Figure 3.16: 
+</p>
+</div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="google-capstone.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pie Chart: Top 10 routes casual</span></span>
+<span id="cb51-2"><a href="google-capstone.html#cb51-2" aria-hidden="true" tabindex="-1"></a>popular_routes <span class="sc">%&gt;%</span></span>
+<span id="cb51-3"><a href="google-capstone.html#cb51-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(member_casual <span class="sc">==</span> <span class="st">&quot;Casual&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb51-4"><a href="google-capstone.html#cb51-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">perc =</span> <span class="fu">percent</span>(n<span class="sc">/</span><span class="fu">sum</span>(n), <span class="at">accuracy =</span> <span class="fl">0.1</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb51-5"><a href="google-capstone.html#cb51-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">1</span>, <span class="at">y =</span> n, <span class="at">fill =</span> <span class="fu">reorder</span>(route, <span class="sc">-</span>n))) <span class="sc">+</span></span>
+<span id="cb51-6"><a href="google-capstone.html#cb51-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_col</span>(<span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">size =</span> <span class="fl">0.2</span>, <span class="at">position =</span> <span class="st">&quot;stack&quot;</span>, <span class="at">orientation =</span> <span class="st">&quot;x&quot;</span>) <span class="sc">+</span></span>
+<span id="cb51-7"><a href="google-capstone.html#cb51-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fl">1.25</span>, <span class="at">label =</span> perc),</span>
+<span id="cb51-8"><a href="google-capstone.html#cb51-8" aria-hidden="true" tabindex="-1"></a>              <span class="at">position =</span> <span class="fu">position_stack</span>(<span class="at">vjust =</span> <span class="fl">0.5</span>), <span class="at">size =</span> <span class="fl">2.5</span>) <span class="sc">+</span></span>
+<span id="cb51-9"><a href="google-capstone.html#cb51-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">coord_polar</span>(<span class="at">theta =</span> <span class="st">&quot;y&quot;</span>, <span class="at">direction =</span> <span class="sc">-</span><span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb51-10"><a href="google-capstone.html#cb51-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_void</span>() <span class="sc">+</span></span>
+<span id="cb51-11"><a href="google-capstone.html#cb51-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Top 10 Popular Routes for Casual Riders</span><span class="sc">\n</span><span class="st">&quot;</span>,</span>
+<span id="cb51-12"><a href="google-capstone.html#cb51-12" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">&quot;&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Number of Rides&quot;</span>) <span class="sc">+</span></span>
+<span id="cb51-13"><a href="google-capstone.html#cb51-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">22</span>, <span class="at">hjust =</span> <span class="sc">-</span><span class="fl">0.25</span>),</span>
+<span id="cb51-14"><a href="google-capstone.html#cb51-14" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend.title =</span> <span class="fu">element_blank</span>(), <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>),</span>
+<span id="cb51-15"><a href="google-capstone.html#cb51-15" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend.key.size =</span> <span class="fu">unit</span>(<span class="fl">0.45</span>, <span class="st">&quot;cm&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb51-16"><a href="google-capstone.html#cb51-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_manual</span>(<span class="at">name =</span> <span class="st">&quot;Route Name&quot;</span>,</span>
+<span id="cb51-17"><a href="google-capstone.html#cb51-17" aria-hidden="true" tabindex="-1"></a>                      <span class="at">values =</span> <span class="fu">colorRampPalette</span>(<span class="fu">brewer.pal</span>(<span class="dv">8</span>,<span class="st">&quot;Set2&quot;</span>))(<span class="dv">10</span>))</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:pop-2-1"></span>
+<img src="_main_files/figure-html/pop-2-1.png" alt="\s" width="672">
+<p class="caption">
+Figure 3.17: 
+</p>
+</div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="google-capstone.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Bar Chart: Top 10 routes member</span></span>
+<span id="cb52-2"><a href="google-capstone.html#cb52-2" aria-hidden="true" tabindex="-1"></a>popular_routes <span class="sc">%&gt;%</span></span>
+<span id="cb52-3"><a href="google-capstone.html#cb52-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(member_casual <span class="sc">==</span> <span class="st">&quot;Member&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb52-4"><a href="google-capstone.html#cb52-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">order =</span> <span class="fu">rank</span>(route)) <span class="sc">%&gt;%</span></span>
+<span id="cb52-5"><a href="google-capstone.html#cb52-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(route, n), <span class="at">y =</span> n)) <span class="sc">+</span></span>
+<span id="cb52-6"><a href="google-capstone.html#cb52-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">fill =</span> <span class="fu">reorder</span>(route, <span class="sc">-</span>n)), <span class="at">position =</span> <span class="st">&quot;dodge&quot;</span>) <span class="sc">+</span></span>
+<span id="cb52-7"><a href="google-capstone.html#cb52-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> comma) <span class="sc">+</span></span>
+<span id="cb52-8"><a href="google-capstone.html#cb52-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="dv">375</span>, <span class="at">label =</span> n), <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb52-9"><a href="google-capstone.html#cb52-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Top 10 Popular Routes for Annual Members</span><span class="sc">\n</span><span class="st">&quot;</span>,</span>
+<span id="cb52-10"><a href="google-capstone.html#cb52-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">&quot;&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Number of Rides&quot;</span>) <span class="sc">+</span></span>
+<span id="cb52-11"><a href="google-capstone.html#cb52-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_blank</span>(), <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb52-12"><a href="google-capstone.html#cb52-12" aria-hidden="true" tabindex="-1"></a>          <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">22</span>, <span class="at">hjust =</span> <span class="fl">1.25</span>),</span>
+<span id="cb52-13"><a href="google-capstone.html#cb52-13" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>), <span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>,</span>
+<span id="cb52-14"><a href="google-capstone.html#cb52-14" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend.key.size =</span> <span class="fu">unit</span>(<span class="fl">0.75</span>, <span class="st">&quot;cm&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb52-15"><a href="google-capstone.html#cb52-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb52-16"><a href="google-capstone.html#cb52-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_brewer</span>(<span class="at">name =</span> <span class="st">&quot;Route Name&quot;</span>, <span class="at">palette =</span> <span class="st">&quot;Set3&quot;</span>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:pop-2-2"></span>
+<img src="_main_files/figure-html/pop-2-2.png" alt="\s" width="672">
+<p class="caption">
+Figure 3.18: 
+</p>
+</div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="google-capstone.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pie Chart: Top 10 routes member</span></span>
+<span id="cb53-2"><a href="google-capstone.html#cb53-2" aria-hidden="true" tabindex="-1"></a>popular_routes <span class="sc">%&gt;%</span></span>
+<span id="cb53-3"><a href="google-capstone.html#cb53-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(member_casual <span class="sc">==</span> <span class="st">&quot;Member&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb53-4"><a href="google-capstone.html#cb53-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">perc =</span> <span class="fu">percent</span>(n<span class="sc">/</span><span class="fu">sum</span>(n), <span class="at">accuracy =</span> <span class="fl">0.1</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb53-5"><a href="google-capstone.html#cb53-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">1</span>, <span class="at">y =</span> n, <span class="at">fill =</span> <span class="fu">reorder</span>(route, <span class="sc">-</span>n))) <span class="sc">+</span></span>
+<span id="cb53-6"><a href="google-capstone.html#cb53-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_col</span>(<span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">size =</span> <span class="fl">0.2</span>, <span class="at">position =</span> <span class="st">&quot;stack&quot;</span>, <span class="at">orientation =</span> <span class="st">&quot;x&quot;</span>) <span class="sc">+</span></span>
+<span id="cb53-7"><a href="google-capstone.html#cb53-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fl">1.25</span>, <span class="at">label =</span> perc),</span>
+<span id="cb53-8"><a href="google-capstone.html#cb53-8" aria-hidden="true" tabindex="-1"></a>              <span class="at">position =</span> <span class="fu">position_stack</span>(<span class="at">vjust =</span> <span class="fl">0.5</span>), <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb53-9"><a href="google-capstone.html#cb53-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">coord_polar</span>(<span class="at">theta =</span> <span class="st">&quot;y&quot;</span>, <span class="at">direction =</span> <span class="sc">-</span><span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb53-10"><a href="google-capstone.html#cb53-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_void</span>() <span class="sc">+</span></span>
+<span id="cb53-11"><a href="google-capstone.html#cb53-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Top 10 Popular Routes for Annual Members</span><span class="sc">\n</span><span class="st">&quot;</span>,</span>
+<span id="cb53-12"><a href="google-capstone.html#cb53-12" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">&quot;&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Number of Rides&quot;</span>) <span class="sc">+</span></span>
+<span id="cb53-13"><a href="google-capstone.html#cb53-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">22</span>, <span class="at">hjust =</span> <span class="sc">-</span><span class="fl">0.25</span>),</span>
+<span id="cb53-14"><a href="google-capstone.html#cb53-14" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend.title =</span> <span class="fu">element_blank</span>(), <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>),</span>
+<span id="cb53-15"><a href="google-capstone.html#cb53-15" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend.key.size =</span> <span class="fu">unit</span>(<span class="fl">0.65</span>, <span class="st">&quot;cm&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb53-16"><a href="google-capstone.html#cb53-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Set3&quot;</span>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:pop-2-3"></span>
+<img src="_main_files/figure-html/pop-2-3.png" alt="\s" width="672">
+<p class="caption">
+Figure 3.19: 
+</p>
+</div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="google-capstone.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Join geo data</span></span>
+<span id="cb54-2"><a href="google-capstone.html#cb54-2" aria-hidden="true" tabindex="-1"></a>popular_routes <span class="ot">&lt;-</span> popular_routes <span class="sc">%&gt;%</span></span>
+<span id="cb54-3"><a href="google-capstone.html#cb54-3" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">inner_join</span>(bike_data <span class="sc">%&gt;%</span></span>
+<span id="cb54-4"><a href="google-capstone.html#cb54-4" aria-hidden="true" tabindex="-1"></a>                                 <span class="fu">select</span>(route, start_lat<span class="sc">:</span>end_lng, member_casual),</span>
+<span id="cb54-5"><a href="google-capstone.html#cb54-5" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;member_casual&quot;</span>, <span class="st">&quot;route&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb54-6"><a href="google-capstone.html#cb54-6" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">distinct</span>(route, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb54-7"><a href="google-capstone.html#cb54-7" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">group_by</span>(member_casual) <span class="sc">%&gt;%</span></span>
+<span id="cb54-8"><a href="google-capstone.html#cb54-8" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">mutate</span>(<span class="at">rank =</span> <span class="fu">order</span>(<span class="fu">order</span>(n, <span class="at">decreasing=</span><span class="cn">TRUE</span>)))</span>
+<span id="cb54-9"><a href="google-capstone.html#cb54-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-10"><a href="google-capstone.html#cb54-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Import map of Chicago</span></span>
+<span id="cb54-11"><a href="google-capstone.html#cb54-11" aria-hidden="true" tabindex="-1"></a>chicago <span class="ot">&lt;-</span> <span class="fu">get_stamenmap</span>(<span class="at">bbox =</span> <span class="fu">c</span>(<span class="at">left =</span> <span class="sc">-</span><span class="fl">87.75</span>, <span class="at">bottom =</span> <span class="fl">41.7</span>,</span>
+<span id="cb54-12"><a href="google-capstone.html#cb54-12" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">right =</span> <span class="sc">-</span><span class="fl">87.5</span>, <span class="at">top =</span> <span class="fl">41.95</span>),</span>
+<span id="cb54-13"><a href="google-capstone.html#cb54-13" aria-hidden="true" tabindex="-1"></a>                         <span class="at">zoom =</span> <span class="dv">11</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="google-capstone.html#cb55-1" aria-hidden="true" tabindex="-1"></a>casual_map <span class="ot">&lt;-</span> <span class="fu">ggmap</span>(chicago, <span class="at">darken =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb55-2"><a href="google-capstone.html#cb55-2" aria-hidden="true" tabindex="-1"></a>              <span class="fu">stat_density2d</span>(<span class="at">data =</span> <span class="fu">filter</span>(popular_routes, member_casual <span class="sc">==</span> <span class="st">&quot;Casual&quot;</span>),</span>
+<span id="cb55-3"><a href="google-capstone.html#cb55-3" aria-hidden="true" tabindex="-1"></a>                             <span class="fu">aes</span>(<span class="at">x =</span> start_lng, <span class="at">y =</span> start_lat,</span>
+<span id="cb55-4"><a href="google-capstone.html#cb55-4" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">fill =</span> ..level.., <span class="at">alpha =</span> ..level..),</span>
+<span id="cb55-5"><a href="google-capstone.html#cb55-5" aria-hidden="true" tabindex="-1"></a>                             <span class="at">geom =</span> <span class="st">&quot;polygon&quot;</span>, <span class="at">bins =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb55-6"><a href="google-capstone.html#cb55-6" aria-hidden="true" tabindex="-1"></a>              <span class="fu">stat_density2d</span>(<span class="at">data =</span> <span class="fu">filter</span>(popular_routes, member_casual <span class="sc">==</span> <span class="st">&quot;Casual&quot;</span>),</span>
+<span id="cb55-7"><a href="google-capstone.html#cb55-7" aria-hidden="true" tabindex="-1"></a>                             <span class="fu">aes</span>(<span class="at">x =</span> end_lng, <span class="at">y =</span> end_lat,</span>
+<span id="cb55-8"><a href="google-capstone.html#cb55-8" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">fill =</span> ..level.., <span class="at">alpha =</span> ..level..),</span>
+<span id="cb55-9"><a href="google-capstone.html#cb55-9" aria-hidden="true" tabindex="-1"></a>                             <span class="at">geom =</span> <span class="st">&quot;polygon&quot;</span>, <span class="at">bins =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb55-10"><a href="google-capstone.html#cb55-10" aria-hidden="true" tabindex="-1"></a>              <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">&quot;green&quot;</span>, <span class="at">high =</span> <span class="st">&quot;red&quot;</span>) <span class="sc">+</span></span>
+<span id="cb55-11"><a href="google-capstone.html#cb55-11" aria-hidden="true" tabindex="-1"></a>              <span class="fu">scale_alpha</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.75</span>), <span class="at">guide =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">+</span></span>
+<span id="cb55-12"><a href="google-capstone.html#cb55-12" aria-hidden="true" tabindex="-1"></a>              <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Casual Rider Hotspot&quot;</span>, <span class="at">x =</span> <span class="st">&quot;&quot;</span>, <span class="at">y =</span> <span class="st">&quot;&quot;</span>) <span class="sc">+</span></span>
+<span id="cb55-13"><a href="google-capstone.html#cb55-13" aria-hidden="true" tabindex="-1"></a>              <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>, <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>),</span>
+<span id="cb55-14"><a href="google-capstone.html#cb55-14" aria-hidden="true" tabindex="-1"></a>                    <span class="at">axis.ticks =</span> <span class="fu">element_blank</span>(), <span class="at">axis.text =</span> <span class="fu">element_blank</span>())</span>
+<span id="cb55-15"><a href="google-capstone.html#cb55-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-16"><a href="google-capstone.html#cb55-16" aria-hidden="true" tabindex="-1"></a>member_map <span class="ot">&lt;-</span> <span class="fu">ggmap</span>(chicago, <span class="at">darken =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb55-17"><a href="google-capstone.html#cb55-17" aria-hidden="true" tabindex="-1"></a>              <span class="fu">stat_density2d</span>(<span class="at">data =</span> <span class="fu">filter</span>(popular_routes, member_casual <span class="sc">==</span> <span class="st">&quot;Member&quot;</span>),</span>
+<span id="cb55-18"><a href="google-capstone.html#cb55-18" aria-hidden="true" tabindex="-1"></a>                             <span class="fu">aes</span>(<span class="at">x =</span> start_lng, <span class="at">y =</span> start_lat,</span>
+<span id="cb55-19"><a href="google-capstone.html#cb55-19" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">fill =</span> ..level.., <span class="at">alpha =</span> ..level..),</span>
+<span id="cb55-20"><a href="google-capstone.html#cb55-20" aria-hidden="true" tabindex="-1"></a>                             <span class="at">geom =</span> <span class="st">&quot;polygon&quot;</span>, <span class="at">bins =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb55-21"><a href="google-capstone.html#cb55-21" aria-hidden="true" tabindex="-1"></a>              <span class="fu">stat_density2d</span>(<span class="at">data =</span> <span class="fu">filter</span>(popular_routes, member_casual <span class="sc">==</span> <span class="st">&quot;Member&quot;</span>),</span>
+<span id="cb55-22"><a href="google-capstone.html#cb55-22" aria-hidden="true" tabindex="-1"></a>                             <span class="fu">aes</span>(<span class="at">x =</span> end_lng, <span class="at">y =</span> end_lat,</span>
+<span id="cb55-23"><a href="google-capstone.html#cb55-23" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">fill =</span> ..level.., <span class="at">alpha =</span> ..level..),</span>
+<span id="cb55-24"><a href="google-capstone.html#cb55-24" aria-hidden="true" tabindex="-1"></a>                             <span class="at">geom =</span> <span class="st">&quot;polygon&quot;</span>, <span class="at">bins =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb55-25"><a href="google-capstone.html#cb55-25" aria-hidden="true" tabindex="-1"></a>              <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">&quot;green&quot;</span>, <span class="at">high =</span> <span class="st">&quot;red&quot;</span>) <span class="sc">+</span></span>
+<span id="cb55-26"><a href="google-capstone.html#cb55-26" aria-hidden="true" tabindex="-1"></a>              <span class="fu">scale_alpha</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.75</span>), <span class="at">guide =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">+</span></span>
+<span id="cb55-27"><a href="google-capstone.html#cb55-27" aria-hidden="true" tabindex="-1"></a>              <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Annual Member Hotspot&quot;</span>, <span class="at">x =</span> <span class="st">&quot;&quot;</span>, <span class="at">y =</span> <span class="st">&quot;&quot;</span>) <span class="sc">+</span></span>
+<span id="cb55-28"><a href="google-capstone.html#cb55-28" aria-hidden="true" tabindex="-1"></a>              <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>, <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>),</span>
+<span id="cb55-29"><a href="google-capstone.html#cb55-29" aria-hidden="true" tabindex="-1"></a>                    <span class="at">axis.ticks =</span> <span class="fu">element_blank</span>(), <span class="at">axis.text =</span> <span class="fu">element_blank</span>())</span>
+<span id="cb55-30"><a href="google-capstone.html#cb55-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-31"><a href="google-capstone.html#cb55-31" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.arrange</span>(casual_map, member_map, <span class="at">nrow =</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:geo-1"></span>
+<img src="_main_files/figure-html/geo-1-1.png" alt="Heatmaps Based on Popular Routes" width="672">
+<p class="caption">
+Figure 3.20: Heatmaps Based on Popular Routes
+</p>
+</div>
+</div>
+</div>
+<div id="report" class="section level2 hasAnchor" number="3.5">
+<h2><span class="header-section-number">3.5</span> Share &amp; Act (Final Report)<a href="google-capstone.html#report" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="key-observations" class="section level3 hasAnchor" number="3.5.1">
+<h3><span class="header-section-number">3.5.1</span> Key Observations<a href="google-capstone.html#key-observations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Figure <a href="google-capstone.html#fig:behavior-1">3.1</a> shows that the target group &#x2013; casual riders &#x2013; is 42% of total users.</p>
+<p>Figures <a href="google-capstone.html#fig:behavior-2">3.2</a> and <a href="google-capstone.html#fig:behavior-3">3.3</a> show that 54.7% of total casual rides are taken during the weekend.</p>
+<blockquote>
+<p>Offer a membership program tailored towards discounted weekend use with incentive(s) to upgrade to an annual membership.</p>
+</blockquote>
+<p>Figures <a href="google-capstone.html#fig:behavior-4">3.4</a> and <a href="google-capstone.html#fig:behavior-5">3.5</a> show that almost half of the total casual rides are taken during the summer.</p>
+<blockquote>
+<p>Offer a summer membership program with incentive(s) to upgrade to an annual membership.</p>
+</blockquote>
+<p>Figures <a href="google-capstone.html#fig:behavior-6">3.6</a> and <a href="google-capstone.html#fig:behavior-7">3.7</a> show that casual riders tend to take trips during summer afternoons, suggesting that the target demographic is <strong>not</strong> likely to be students or commuters.</p>
+<ul>
+<li>Students and commuters would show higher use during off-seasons, as well as mornings and weekdays - as is shown by members in Figures <a href="google-capstone.html#fig:behavior-6">3.6</a> and <a href="google-capstone.html#fig:behavior-8">3.8</a></li>
+</ul>
+<p>Figure <a href="google-capstone.html#fig:geo-1">3.20</a> shows that casual riders take the most trips in Downtown Chicago (see Figure <a href="google-capstone.html#fig:pop-1">3.16</a> for popular route names).</p>
+<blockquote>
+<p>Allocate more resources towards marketing in Downtown Chicago (The Loop).</p>
+</blockquote>
+<p>Figures relevant to bike choice (<a href="google-capstone.html#fig:choice-1">3.11</a> - <a href="google-capstone.html#fig:choice-6">3.15</a>) indicate that casual riders and annual members exhibit similar behavior; however, it&#x2019;s worth investigating why 12% of casual riders use a docked bike when 0% of members do.</p>
+</div>
+<div id="actionables" class="section level3 hasAnchor" number="3.5.2">
+<h3><span class="header-section-number">3.5.2</span> Actionables<a href="google-capstone.html#actionables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li>Allocate more resources towards marketing in Downtown Chicago (The Loop)</li>
+<li>Offer a membership program tailored towards discounted weekend use</li>
+<li>Offer a summer membership program</li>
+<li>Equip both programs with incentive(s) to upgrade to an annual membership</li>
+</ol>
+
+</div>
+</div>
+</div>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-R-geosphere" class="csl-entry">
+Hijmans, Robert J. 2021. <em>Geosphere: Spherical Trigonometry</em>. <a href="https://CRAN.R-project.org/package=geosphere">https://CRAN.R-project.org/package=geosphere</a>.
+</div>
+<div id="ref-R-RColorBrewer" class="csl-entry">
+Neuwirth, Erich. 2022. <em>RColorBrewer: ColorBrewer Palettes</em>. <a href="https://CRAN.R-project.org/package=RColorBrewer">https://CRAN.R-project.org/package=RColorBrewer</a>.
+</div>
+<div id="ref-R-lubridate" class="csl-entry">
+Spinu, Vitalie, Garrett Grolemund, and Hadley Wickham. 2021. <em>Lubridate: Make Dealing with Dates a Little Easier</em>. <a href="https://CRAN.R-project.org/package=lubridate">https://CRAN.R-project.org/package=lubridate</a>.
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="nasa-svm.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="rsql.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": null,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

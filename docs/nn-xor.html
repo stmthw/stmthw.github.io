@@ -23,7 +23,7 @@
 <meta name="author" content="Matthew Robert Sears">
 
 
-<meta name="date" content="2022-09-30">
+<meta name="date" content="2022-10-29">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -176,7 +176,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="nasa-svm.html"><a href="nasa-svm.html#conclusions"><i class="fa fa-check"></i><b>2.4</b> Conclusions</a>
 <ul>
-<li class="chapter" data-level="2.4.1" data-path="nasa-svm.html"><a href="nasa-svm.html#todo"><i class="fa fa-check"></i><b>2.4.1</b> TODO?</a></li>
+<li class="chapter" data-level="2.4.1" data-path="nasa-svm.html"><a href="nasa-svm.html#todo"><i class="fa fa-check"></i><b>2.4.1</b> TODO</a></li>
 </ul></li>
 <li class="chapter" data-level="2.5" data-path="nasa-svm.html"><a href="nasa-svm.html#nasa-fw"><i class="fa fa-check"></i><b>2.5</b> Future Work?</a></li>
 <li class="chapter" data-level="" data-path="nasa-svm.html"><a href="nasa-svm.html#source-code"><i class="fa fa-check"></i>Source Code</a></li>
@@ -474,60 +474,60 @@ A &amp; B &amp; A \oplus B\\
 <span id="cb112-46"><a href="nn-xor.html#cb112-46" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">&quot;Hidden Weights:</span><span class="ch">\n</span><span class="st">&quot;</span>, sess.run(w_h), <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
 <span id="cb112-47"><a href="nn-xor.html#cb112-47" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">&quot;Error:&quot;</span>, sess.run(cost, feed_dict<span class="op">=</span>dict_xor))</span></code></pre></div>
 <pre><code>## --------------------
-## Iteration 0 Guess: [[0.7243998  0.7971569  0.79446656 0.8379312 ]] 
+## Iteration 0 Guess: [[0.6382959  0.67482334 0.68818045 0.712769  ]] 
 ## 
 ## Input Weights:
-##  [[0.94818705 0.7464463 ]
-##  [0.8019639  0.9732103 ]]
+##  [[0.78813964 0.86214846]
+##  [0.13670845 0.91594166]]
 ## Hidden Weights:
-##  [[0.9647351]
-##  [0.9680496]] 
+##  [[0.45105302]
+##  [0.68489796]] 
 ## 
-## Error: 0.3275683
+## Error: 0.27960813
 ## --------------------
-## Iteration 25000 Guess: [[0.3536001  0.6238406  0.62497836 0.47648114]] 
+## Iteration 25000 Guess: [[0.2687148  0.68361616 0.68345094 0.408158  ]] 
 ## 
 ## Input Weights:
-##  [[3.9462633  0.64954036]
-##  [4.0000496  0.6569946 ]]
+##  [[0.7330665  4.97169   ]
+##  [0.73106855 4.907222  ]]
 ## Hidden Weights:
-##  [[ 4.0208645]
-##  [-5.227368 ]] 
+##  [[-8.683456 ]
+##  [ 6.6811504]] 
 ## 
-## Error: 0.15855111
+## Error: 0.109775655
 ## --------------------
-## Iteration 50000 Guess: [[0.18447012 0.75313777 0.75314426 0.3222489 ]] 
+## Iteration 50000 Guess: [[0.15894006 0.7772046  0.77719414 0.29180697]] 
 ## 
 ## Input Weights:
-##  [[5.7979884  0.80113506]
-##  [5.8069935  0.8012456 ]]
+##  [[0.8214333 6.0759916]
+##  [0.8212353 6.054871 ]]
 ## Hidden Weights:
-##  [[ 10.324945 ]
-##  [-13.2976465]] 
+##  [[-15.087451]
+##  [ 11.755179]] 
 ## 
-## Error: 0.064938076
+## Error: 0.052423377
 ## --------------------
-## Iteration 100000 Guess: [[0.09839444 0.8417384  0.8417392  0.20885351]] 
+## Iteration 100000 Guess: [[0.09161668 0.8497939  0.8497923  0.19840614]] 
 ## 
 ## Input Weights:
-##  [[6.7289333 0.8689879]
-##  [6.732467  0.8690047]]
+##  [[0.87447494 6.8183227 ]
+##  [0.8744301  6.8081775 ]]
 ## Hidden Weights:
-##  [[ 16.286327]
-##  [-20.716713]] 
+##  [[-21.539515]
+##  [ 16.951408]] 
 ## 
-## Error: 0.025848618
+## Error: 0.023220709
 ## --------------------
-## Iteration 250000 Guess: [[0.04662761 0.909456   0.90945613 0.12043235]] 
+## Iteration 250000 Guess: [[0.04534886 0.9112044  0.9112041  0.11809696]] 
 ## 
 ## Input Weights:
-##  [[7.454041   0.91301566]
-##  [7.455749   0.9130196 ]]
+##  [[0.91362447 7.478241  ]
+##  [0.9136126  7.4730563 ]]
 ## Hidden Weights:
-##  [[ 23.14218 ]
-##  [-29.177805]] 
+##  [[-29.468285]
+##  [ 23.374363]] 
 ## 
-## Error: 0.008268622</code></pre>
+## Error: 0.007943195</code></pre>
 
 </div>
 </div>
